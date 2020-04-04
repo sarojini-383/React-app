@@ -1,0 +1,32 @@
+.greetings-container {
+    display: flex;
+    flex-direction: column;
+
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px
+}
+
+.greetings-nav-bar {
+    padding: 10px;
+    background-color: black;
+    color: white;
+}
+
+.user-input {
+    border: 2px solid black;
+    width: 200px;
+    font-size: 15px;
+    padding: 5px;
+}
+
+.greet-button {
+    width: 50px;
+    border: 2px solid black;
+    padding: 10px
+}

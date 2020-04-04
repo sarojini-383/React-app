@@ -1,0 +1,32 @@
+.dark-mode {
+    background-color: #2b3945;
+    color: white;
+}
+
+.light-mode {
+
+    background-color: white;
+    color: black;
+}
+/*.loadingTxt{*/
+/*    padding:50px;*/
+/*}*/
+
+/*.filter-country-container {*/
+/*    display: flex;*/
+/*    justify-content: space-between;*/
+/*    margin: 20px;*/
+/*}*/
+
+/*.countryCard-container {*/
+/*    display: flex;*/
+/*    flex-wrap: wrap;*/
+/*}*/
+
+/*.reg-select {*/
+/*    width: 80px;*/
+/*}*/
+
+/*span {*/
+/*    margin-bottom: 15px;*/
+/*}*/

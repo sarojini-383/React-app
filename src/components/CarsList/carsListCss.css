@@ -1,0 +1,98 @@
+.add-btn {
+    border-radius: 5px;
+    font-size: 20px;
+    color: white;
+    background-color: blue;
+    float: right;
+}
+
+.add-btn:hover {
+    border: 3px solid lightblue;
+}
+
+.car-container {
+    margin-top: 10px;
+    border: 1px solid white;
+    background-color: white;
+    padding: 20px 100px 20px 100px;
+    border-bottom: 1px solid lightgrey;
+}
+
+.car-name {
+    display: flex;
+}
+
+.car-id {
+    font-size: 25px;
+    margin-right: auto;
+}
+
+.remove-btn {
+    color: red;
+    font-size: 30px;
+    margin-left: auto;
+    border: 1px solid white;
+}
+
+.start-btn {
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 15px;
+    color: white;
+    background-color: green;
+}
+
+.stop-btn {
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 15px;
+    color: white;
+    background-color: red;
+}
+
+.car-status-txt {
+    font-size: 20px;
+}
+
+.control-btns {
+    display: flex;
+    justify-content: space-between;
+}
+
+.accelerate-btn {
+    padding: 7px 10px 7px 10px;
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 15px;
+    color: #24A0ed;
+    border: 1px solid #24A0ed;
+
+}
+
+.decelerateOn {
+    padding: 7px 10px 7px 10px;
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 15px;
+    color: white;
+    border: 1px solid red;
+    background-color: red;
+}
+
+.decelerateOff {
+    padding: 7px 10px 7px 10px;
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 15px;
+    color: red;
+    border: 1px solid red;
+    background-color: white;
+}
+
+.accelerate-btn:hover {
+    border: 3px solid lightblue;
+    background-color: #24A0ed;
+    color: white;
+}

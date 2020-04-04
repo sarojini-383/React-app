@@ -1,0 +1,31 @@
+.header-dark-mode {
+    display: flex;
+    box-shadow: 0 8px 6px -6px black;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.header-light-mode {
+    display: flex;
+    box-shadow: 0 8px 6px -6px black;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+/*.dark-mode {*/
+
+/*background-color: #fff;*/
+
+/*    background-color: #2b3945;*/
+
+/*    color: white;*/
+
+/*}*/
+
+/*.light-mode {*/
+
+/*    background-color: white;*/
+
+/*    color: black;*/
+
+/*}*/

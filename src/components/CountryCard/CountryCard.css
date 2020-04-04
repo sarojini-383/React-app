@@ -1,0 +1,24 @@
+.country-card {
+    display: flex;
+    flex-direction: column;
+
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px silver;
+    margin: 10px;
+    width: 200px;
+    height: 400px;
+}
+img{
+   border-radius: 10px 10px 0px 0px; 
+   object-fit: cover;
+}
+
+
+.detailsBlc {
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+}
+.loadingTxt{
+    text-align: center
+}
