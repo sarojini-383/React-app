@@ -24,26 +24,27 @@ class EmojiGame extends React.Component {
         gameState:'PLAYING',
         score:0,
         topScore:0,
+       // selectedTheme:{light:'light',dark:'dark'}
+       selectedTheme:"light",
     }
 
 
 onEmojiClick=(emoji)=>{
     let score=this.state.score;
     let emojis = this.state.emojis;
-    //alert(score) 
 
-    if(!emoji.isClicked && score !==emojis.length ){
-      this.shuffleEmojis();
+    if(!emoji.isClicked && score !== emojis.length){
       this.incrementScore();
-      this.setState({gameState:'PLAYING'})
-    emoji.isClicked=!emoji.isClicked;
+      this.shuffleEmojis();
     }
-    else if(!emoji.isClicked && score === emojis.length ){
+    else if(emoji.isClicked && score === emojis.length ){
         this.setState({gameState:'WON'}) 
     }
     else{
         this.setState({gameState:'Lose'})
     }
+        emoji.isClicked=!emoji.isClicked;
+
 }
  shuffleEmojis=()=>{
   let temp = this.state.emojis;
@@ -55,12 +56,13 @@ for (let i = temp.length - 1; i > 0; i--) {
 }
 incrementScore=()=>{
     let score=this.state.score;
+    let emojis = this.state.emojis;
+    
     score++;
     this.setState({ score: score});
+          //  alert(score)
 }
 onPlayAgainClick=()=>{
-alert(this.state.topScore)
-        
         this.setTopScore();
         this.resetGame();
     
@@ -72,6 +74,17 @@ setTopScore=()=>{
         this.setState({ topScore: score});  
         }
 }
+onChangeTheme=()=>{
+    
+    let {selectedTheme}=this.state;
+    if(selectedTheme==="light"){
+     this.setState({ selectedTheme: "dark"});    
+    }
+    else{
+     this.setState({ selectedTheme: "light"});    
+    }
+    
+}
 resetGame=()=>{
      this.setState({gameState:'PLAYING',
         score:0,
@@ -82,12 +95,13 @@ resetGame=()=>{
 }
 render() {
     
- return <div><Navbar score={this.state.score} topScore={this.state.topScore}></Navbar>
- {(this.state.gameState ==='PLAYING')?<EmojiCardsContainer>
+ return <div>
+ <Navbar score={this.state.score} topScore={this.state.topScore} onChangeTheme={this.onChangeTheme} selectedTheme={this.state.selectedTheme}></Navbar>
+ {(this.state.gameState ==='PLAYING')?<EmojiCardsContainer selectedTheme={this.state.selectedTheme}>
  {this.state.emojis.map(emoji=>
-<EmojiCard emoji={emoji} onEmojiClick={()=>this.onEmojiClick(emoji)} />)}:
+<EmojiCard emoji={emoji} onEmojiClick={()=>this.onEmojiClick(emoji)} selectedTheme={this.state.selectedTheme} />)}
 </EmojiCardsContainer>
-:<WinOrLose score={this.state.score} isWon={this.state.gameState==='WON'?true:false} onPlayAgainClick={this.onPlayAgainClick}/>};
+:<WinOrLose selectedTheme={this.state.selectedTheme} score={this.state.score} isWon={this.state.gameState==='WON'?true:false} onPlayAgainClick={this.onPlayAgainClick}/>}
 </div>
 }
 
