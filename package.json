@@ -10,12 +10,9 @@
     "@testing-library/user-event": "^7.2.1",
     "autoprefixer": "^9.7.5",
     "babel-plugin-macros": "^2.8.0",
-<<<<<<< HEAD
     "emotion": "^10.0.27",
-=======
     "mobx": "5.15.0",
     "mobx-react": "6.1.4",
->>>>>>> 6266c46f6948c3560df68fd2fb31192fa3081e2e
     "postcss-cli": "^7.1.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
