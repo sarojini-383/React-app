@@ -26,7 +26,6 @@ ${tw `mx-4`}`
 const ThemeStyle=styled.div`
 ${tw `p-1 `}
 border:${props=>props.selectedTheme==="light"?'solid black 1px':'solid white 1px'};
-
 `
 
 const WinOrLoseStyle=styled.div`
@@ -47,12 +46,11 @@ ${tw `text-red-700 text-3xl `}`
 const ScoreStyle=styled.h1`
 ${tw `text-5xl`}`
 
-// const dynamicStyle =styled.div`${tw props =>
-  
-//     color: ${props.color};
-//   `
-
+const FooterTxtStyle=styled.div`
+background-color:${props=>props.selectedTheme==="light"?'white':'#32527B'};
+color:${props=>props.selectedTheme==="light"?'black':'white'};
+`
 export {EmojiCardsContainer,EmojiCardStyle,NavbarStyle,NavbarChildStyle,ThemeStyle,TopScoreStyle,WinOrLoseStyle,PlayAgainButtonStyle
-,WinTxtStyle ,  LoseTxtStyle,ScoreStyle
+,WinTxtStyle ,  LoseTxtStyle,ScoreStyle,FooterTxtStyle
     
 }

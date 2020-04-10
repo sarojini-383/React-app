@@ -8,6 +8,7 @@ class Todo extends React.Component {
         super(props);
     }
     render() {
+        console.log(this.props.todoObj)
         return <div className="todo-block">
         <input  className="check-box"   checked={this.props.todoObj.checkedStatus} onClick={()=>this.props.handlecheck(this.props.todoObj)} type="checkBox"/>
         <input  className="input-text"  disabled={this.props.todoObj.checkedStatus} defaultValue={this.props.todoObj.todoContent} type="text"/>
@@ -38,6 +39,7 @@ class TodosList extends React.Component {
         }
     }
     addTodo = (obj) => {
+
         this.setState((state) => ({
             userTodoList: state.userTodoList = [...state.userTodoList, obj]
         }))
@@ -47,17 +49,20 @@ class TodosList extends React.Component {
     }
 
     OnremoveTodo = (userTodo) => {
-
-        let confirm = window.confirm("Do You Really Want to delete it..!")
-        if (confirm) {
-            let todosAry = [...this.state.userTodoList]
+        
+            let todosAry = this.state.userTodoList
 
             let index = todosAry.indexOf(userTodo)
-            todosAry.splice(parseInt(index), 1)
-
+            todosAry.splice(parseInt(index,10), 1)
+     
+        let confirm = window.confirm("Do You Really Want to delete it..!")
+      
+        if (confirm) {
+           console.log(todosAry) 
             this.setState({
                 userTodoList: todosAry
             })
+
         }
 
         if (this.state.userTodoList.length === 1) {
@@ -106,33 +111,33 @@ class TodosList extends React.Component {
     }
 
     clearCompletedItems = () => {
-        //let todosToBeClear = [...this.state.userTodoList].filter((todo) => todo.checkedStatus === false)
         this.setState({
             userTodoList: (this.state.userTodoList.filter((todo) => (todo.checkedStatus === false)))
-            //userTodoList: todosToBeClear
         });
 
 
     }
 
     renderTodoList = (filterState) => {
-
+            console.log(this.state.userTodoList)
         switch (filterState) {
             case "All":
-                return [...this.state.userTodoList].map((todo) =>
-                    <Todo  handlecheck ={this.OnhandleCheck} todoObj={todo} removeTodo={this.OnremoveTodo} />
+                let allTodos =[...this.state.userTodoList];
+                console.log(allTodos)
+                return allTodos.map((todo) =>
+                    <Todo key={todo.id}  handlecheck ={this.OnhandleCheck} todoObj={todo} removeTodo={this.OnremoveTodo} />
                 )
 
             case "Active":
                 let activeTodos = [...this.state.userTodoList].filter((todo) => todo.checkedStatus === false)
                 return activeTodos.map((todo) =>
-                    <Todo  handlecheck ={this.OnhandleCheck} todoObj={todo} removeTodo={this.OnremoveTodo} />
+                    <Todo key={todo.id} handlecheck ={this.OnhandleCheck} todoObj={todo} removeTodo={this.OnremoveTodo} />
                 )
 
             case "Completed":
                 let completedTodos = [...this.state.userTodoList].filter((todo) => todo.checkedStatus === true)
                 return completedTodos.map((todo) =>
-                    <Todo  handlecheck ={this.OnhandleCheck} todoObj={todo} removeTodo={this.OnremoveTodo} />
+                    <Todo  key={todo.id} handlecheck ={this.OnhandleCheck} todoObj={todo} removeTodo={this.OnremoveTodo} />
                 )
         }
 
@@ -149,7 +154,6 @@ class TodosList extends React.Component {
         
 
         <input className="user-input"  onKeyDown={this.userInput}  type="text" id="myInput" placeholder="what needs to be done !">
-        {/*{this.state.todoItemsLeft ?<span className="drop-down" ></span>:null}*/}
         </input>
 
          <div className="paper"> {this.renderTodoList(this.state.filterState)}</div>

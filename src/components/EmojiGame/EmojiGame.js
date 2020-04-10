@@ -2,6 +2,7 @@ import React from "react";
 import EmojiCard from "./EmojiCard";
 import WinOrLose from "./WinOrLose"
 import Navbar from "./Navbar"
+import HowToPlay from "./HowToPlay"
 
 import {EmojiCardsContainer} from './styledComponent.js'
 
@@ -102,9 +103,12 @@ render() {
 <EmojiCard emoji={emoji} onEmojiClick={()=>this.onEmojiClick(emoji)} selectedTheme={this.state.selectedTheme} />)}
 </EmojiCardsContainer>
 :<WinOrLose selectedTheme={this.state.selectedTheme} score={this.state.score} isWon={this.state.gameState==='WON'?true:false} onPlayAgainClick={this.onPlayAgainClick}/>}
+<HowToPlay selectedTheme={this.state.selectedTheme}/>
 </div>
 }
 
 }
 export default EmojiGame;
 
+//How to play?
+//Get points by clicking on an image but don't click on any image more than once!

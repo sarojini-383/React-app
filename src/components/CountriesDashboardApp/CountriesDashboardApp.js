@@ -1,5 +1,8 @@
 /*global fetch*/
 import React from 'react';
+import themeStore from "../../stores/ThemeStore"; 
+import {observable} from "mobx"; 
+import {observer} from "mobx-react"; 
 
 
 import { Header } from '../Header/Header.js'
@@ -16,6 +19,7 @@ import '../Countries/Countries.css'
 
 import {CountriesFilterBarContainer,CountryCardContainer,Loading} from '../styledComponentForCountryDashBoard.js'
 
+@observer 
 class CountriesDashboardApp extends React.Component {
 
     state = {
@@ -101,17 +105,23 @@ this.filterCountriesByRegion()
     filterCountriesByName = (s) => {
 
     }
-
+  getCurrentTheme=()=>{
+  return themeStore.selectedTheme;  
+  }
+  
+    onChangeTheme=()=>{
+   themeStore.setCurrentTheme();  
+  }
 
     render() {
-        return (<div className={this.props.selectedTheme === 'Dark mode' ?'dark-mode':'light-mode'}>
-        <Header   onChangeTheme={this.props.onChangeTheme} selectedTheme={this.props.selectedTheme}/>
+        return (<div className={this.getCurrentTheme() === 'Dark mode' ?'dark-mode':'light-mode'}>
+        <Header   onChangeTheme={this.props.onChangeTheme} selectedTheme={this.getCurrentTheme()}/>
         
    
      
        <CountriesFilterBarContainer >
        
-        <SearchCountry selectedTheme={this.props.selectedTheme} onChangeSearchText={this.onChangeSearchText} />
+        <SearchCountry selectedTheme={this.getCurrentTheme()} onChangeSearchText={this.onChangeSearchText} />
         <SelectRegion  countryRegions={this.filterCountriesByRegion()} onChange={this.onChangeSelectedRegion}  />
        
        </CountriesFilterBarContainer>

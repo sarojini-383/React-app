@@ -5,8 +5,8 @@ class EmojiCard extends React.Component{
 
    
     render(){
-    let {emoji,onEmojiClick}=this.props;
-        return<EmojiCardStyle onClick={onEmojiClick} selectedTheme={this.props.selectedTheme} >
+    let {emoji,onEmojiClick,selectedTheme}=this.props;
+        return<EmojiCardStyle onClick={onEmojiClick} selectedTheme={selectedTheme} >
         <img src={emoji.image} width='200px'/>
         <p>{emoji.name}</p>
         </EmojiCardStyle>
