@@ -12,12 +12,13 @@ class Event extends React.Component{
 @observable location
 
 constructor(event){
- alert('p')
+
  super(event)
-         this.id=Math.random();
-          this.name = event;
-          this.location = false;
+          this.id=Math.random();
+          this.name = event.eventName;
+          this.location = event.eventLocation;
 }
+
 
 }
 export default Event

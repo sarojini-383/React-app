@@ -1,21 +1,19 @@
 import React from "react"
+import {action} from 'mobx'
 
-//import eventStore from '../../stores/EventStore/EventStore.js'
 import eventStore from "../../stores/EventStore/EventStore.js"
 import {EventAppContainer,Events,EventTag,AddEventBtn} from './StyledComponent.js'
-
+import AddEvent from './AddEvent.js'
 
 class EventsApp extends React.Component {
+    
+ onChangeEventName(){
+//console.log(event.target.value);
+
+ }
  
 render(){
-    console.log(eventStore.events)
-   return(<EventAppContainer>
-    <Events><EventTag><input type="text" placeholder="Event name"/></EventTag>
-    <EventTag><input type="text" placeholder="Event location"/></EventTag></Events>
-    <AddEventBtn onClick={eventStore.onAddEvent}>Add Event</AddEventBtn>
-    {eventStore.events.map(event=><AddEvent/>)}
-    
-    </EventAppContainer>);
+  return <div><AddEvent/></div>
 }
     
 }

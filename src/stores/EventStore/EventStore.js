@@ -1,4 +1,4 @@
-import {action,observable} from 'mobx'
+import {action,observable,toJS} from 'mobx'
 
 import Event from "../../stores/models/Event.js"; 
 
@@ -6,9 +6,11 @@ class EventStore{
 @observable events=[];
 
 @action.bound  
-  onAddEvent(){
-  let eventInstance =new Event()
-  this.events.push(eventInstance);
+  onAddEvent(event){
+    console.log(event)
+let eventInstance =new Event(event)
+
+this.events.push(eventInstance);
   }  
   
 } 
