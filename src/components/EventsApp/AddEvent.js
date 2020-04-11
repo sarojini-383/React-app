@@ -11,31 +11,30 @@ import {EventAppContainer,Events,EventTag,AddEventBtn} from './StyledComponent.j
 @observer
 class AddEvent extends React.Component {
 
-eventObj=observable({eventName:'',eventLocation:''});
+@observable eventName="";
+@observable eventLocation="";
 
 @action.bound
    onChangeEventName(e){
-     this.eventObj.eventName=e.target.value
+     this.eventName=e.target.value;
 }
 
   @action.bound
  onChangeEventLocation(e){
-     this.eventObj.eventLocation=e.target.value
+     this.eventLocation=e.target.value;
  }
+   @action.bound
+onAddEvent(){
+  eventStore.onAddEvent(this.eventName,this.eventLocation) ;
+}
 
-@action.bound
-renderEvents(){
-  eventStore.events.map(event=><p></p>)
-} 
     render() {
-       // console.log('pi')
-         //    console.log(eventStore.events)
+
+     console.log(eventStore.events)
    return(<EventAppContainer>
-    <Events><EventTag><input type="text" placeholder="Event name" onChange={this.onChangeEventName} /></EventTag>
-    <EventTag><input type="text" placeholder="Event location" onChange={this.onChangeEventLocation}/></EventTag></Events>
-    <AddEventBtn onClick={()=>eventStore.onAddEvent(this.eventObj)}>Add Event</AddEventBtn>
-   <div><EventList/>
-   </div>
+    <Events><EventTag><input type="text" value={this.eventName} placeholder="Event name" onChange={this.onChangeEventName} /></EventTag>
+    <EventTag><input type="text" value={this.eventLocation} placeholder="Event location" onChange={this.onChangeEventLocation}/></EventTag></Events>
+    <AddEventBtn onClick={this.onAddEvent}>Add Event</AddEventBtn>
     </EventAppContainer>);
     }
 }

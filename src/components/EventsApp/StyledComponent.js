@@ -8,6 +8,8 @@ const EventAppContainer=styled.div`${tw `flex justify-around border border-black
 const Events=styled.div`${tw `flex flex-col `}`
 const AddEventBtn=styled.div`${tw `border border-black self-center p-3`}`
 
+const Editbutton=styled.div`${tw `border border-black `}`
+const Delbutton=styled.div`${tw `border border-black `}`
 
-
-export {EventAppContainer,Events,EventTag,AddEventBtn}
+const EventListStyle=styled.div`${tw `flex `}`
+export {EventAppContainer,Events,EventTag,AddEventBtn,Editbutton,Delbutton,EventListStyle}

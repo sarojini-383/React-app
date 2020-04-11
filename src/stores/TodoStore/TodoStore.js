@@ -19,7 +19,7 @@ class TodoStore{
 
     
 @computed get activeTodosCount() {
-    alert('p')
+
     return [...this.todos].filter(todo => todo.checkedStatus === false).length
     }
     

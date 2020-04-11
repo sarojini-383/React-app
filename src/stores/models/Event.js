@@ -1,24 +1,27 @@
-import React from "react"
+//import React from "react"
 
 import {observable,action} from "mobx";   
 import {observer} from 'mobx-react'
 
 import eventStore from "../../stores/EventStore/EventStore.js"; 
 
-@observer
-class Event extends React.Component{
+
+class Event{
 @observable id
 @observable name
-@observable location
+@observable eventLocation
 
-constructor(event){
-
- super(event)
+constructor(name,location){
           this.id=Math.random();
-          this.name = event.eventName;
-          this.location = event.eventLocation;
+          this.name =name;
+          this.eventLocation =location;
 }
 
+
+@action.bound
+onUpdateEventDetails(){
+ 
+}
 
 }
 export default Event

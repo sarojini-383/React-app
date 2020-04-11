@@ -67,6 +67,7 @@ import CounterApp from "./components/CounterApp/CounterApp.js";
 
 import EventsApp from "./components/EventsApp/EventsApp.js";
 
+import  A  from './components/ReactInject/index.js'
 
 import logo from './logo.svg';
 import './App.css';
@@ -145,7 +146,7 @@ class App extends React.Component {
               <li>
               <Link to="/TodosList">TodosList</Link>
             </li>
-            
+
         {/*<li>
               <Link to="/FormComponents">Form Components</Link>
             </li>*/}
@@ -160,7 +161,11 @@ class App extends React.Component {
             </li>            
                       <li>
               <Link to="/CounterApp">Counter App</Link>
-            </li>            
+            </li>    
+            
+                          <li>
+              <Link to="/inject">Inject</Link>
+            </li>
 
           </ul>
         </nav>
@@ -213,6 +218,10 @@ class App extends React.Component {
           
        <Route path="/CounterApp">
           <CounterApp  />
+          </Route> 
+          
+           <Route path="/inject">
+          <A />
           </Route> 
     
     
