@@ -28,6 +28,7 @@ onAddEvent(){
   eventStore.onAddEvent(this.eventName,this.eventLocation) ;
 }
 
+
     render() {
 
      console.log(eventStore.events)

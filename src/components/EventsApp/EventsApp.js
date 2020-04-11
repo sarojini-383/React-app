@@ -24,7 +24,6 @@ class EventsApp extends React.Component {
  </EventListStyle>)
  }
 render(){
- //console.log("events" ,eventStore.events)
   return <div><AddEvent/>
 <div>{this.renderEvents()}
 </div>
