@@ -5,15 +5,9 @@ import {observer} from "mobx-react";
 let todoId = 1;
 
 
-type todoProps={
-    //onClick:()=>void
-    removeTodo:Function
-    handlecheck:Function
-    todoObj:any
-}
 
 @observer
-class Todo extends React.Component<todoProps> {
+class Todo extends React.Component {
     render() {
         let {todoObj,removeTodo,handlecheck} =this.props
         return <div className="todo-block">
@@ -24,15 +18,11 @@ class Todo extends React.Component<todoProps> {
     }
 }
 
-type todoAppProps={
-    
-    
-    //userTodoList:Array<string>
-}
-@observer 
-class TodoApp extends React.Component<todoAppProps> {
 
-@observable userTodoList:any= []
+@observer 
+class TodoApp extends React.Component {
+
+@observable userTodoList= []
 @observable filterState= "All"
 @observable  todoItemsLeft= false
 @observable  clearcompletedDisplay= false 
@@ -42,7 +32,7 @@ class TodoApp extends React.Component<todoAppProps> {
     }
   
     userInput = (event) => {
-        let obj:any = {}
+        let obj = {}
         obj.todoContent = event.target.value
         obj.checkedStatus= false
         obj.id= todoId

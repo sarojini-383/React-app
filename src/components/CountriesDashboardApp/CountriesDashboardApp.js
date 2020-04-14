@@ -21,21 +21,9 @@ import '../Countries/Countries.css'
 
 import {CountriesFilterBarContainer,CountryCardContainer,Loading} from '../styledComponentForCountryDashBoard.js'
 
-// type countryDetails={
-//     region:string
-// }
 
-type countriesDashboardAppProps={
-//onChangeTheme:()=>void;
-onChangeTheme:Function;
-//countries:countryDetails
-
-}
-// type IState={
-//   allCountries:Array<string> 
-// }
 @observer 
-class CountriesDashboardApp extends React.Component<countriesDashboardAppProps> {
+class CountriesDashboardApp extends React.Component{
 
     state = {
       allCountries: [],
@@ -59,7 +47,7 @@ class CountriesDashboardApp extends React.Component<countriesDashboardAppProps> 
     // }
 
     getCountries = (json) => {
-        let countryDetails:any = [];
+        let countryDetails=[];
         json.forEach(item => {
             countryDetails.push(item)
         });
@@ -96,18 +84,18 @@ this.filterCountriesByRegion()
         }
 
         else if (searchedTxt !== "" && selectedRegion === 'All') {
-            let countriesByName = allCountries.filter((item:any) => item.name.toLowerCase().search(searchedTxt.toLowerCase()) !== -1);
+            let countriesByName = allCountries.filter((item) => item.name.toLowerCase().search(searchedTxt.toLowerCase()) !== -1);
             this.setState({ countries: countriesByName });
         }
 
         else if (searchedTxt === "" && selectedRegion !== 'All') {
-            let countriesByRegion = allCountries.filter((item:any) => item.region.toLowerCase().search(selectedRegion.toLowerCase()) !== -1);
+            let countriesByRegion = allCountries.filter((item) => item.region.toLowerCase().search(selectedRegion.toLowerCase()) !== -1);
             this.setState({ countries: countriesByRegion });
         }
 
         else if (searchedTxt != "" && selectedRegion !== 'All') {
-            let countriesByName = allCountries.filter((item:any) => item.name.toLowerCase().search(searchedTxt.toLowerCase()) !== -1);
-            let result = countriesByName.filter((item:any) => item.region.toLowerCase().search(selectedRegion.toLowerCase()) !== -1);
+            let countriesByName = allCountries.filter((item) => item.name.toLowerCase().search(searchedTxt.toLowerCase()) !== -1);
+            let result = countriesByName.filter((item) => item.region.toLowerCase().search(selectedRegion.toLowerCase()) !== -1);
            this.setState({ countries: result })
         }
     }

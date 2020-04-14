@@ -18,4 +18,4 @@ ${tw `text-4xl`}` ;
 const CountValue=styled.input`
 ${tw `text-4xl w-48 h-12 border-solid border-yellow-600`}` ;
 
-export {CounterAppContainer,FooterStyle,ButtonStyle,CounterTxtStyle,CountValue}
+export {CounterAppContainer,FooterStyle,ButtonStyle,CounterTxtStyle}

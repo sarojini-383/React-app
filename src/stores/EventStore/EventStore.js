@@ -5,7 +5,7 @@ import Event from "../../stores/models/Event";
 
 
 class EventStore{
-@observable events:Array<Event> =[];
+@observable events=[];
 
 @action.bound  
   onAddEvent(name,location){
@@ -16,7 +16,7 @@ this.events.push(toJS(eventInstance));
 
 onDeleteEvent(event){
             let eventsAry = [...this.events]
-            let index:number = eventsAry.indexOf(event)
+            let index= eventsAry.indexOf(event)
             eventsAry.splice(index, 1)
             this.events=eventsAry;
 } 

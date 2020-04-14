@@ -2,7 +2,7 @@ import React from "react";
 import {observable} from "mobx"; 
 import {observer} from "mobx-react"; 
 
-import {CounterAppContainer,ButtonStyle,FooterStyle,CounterTxtStyle,CountValue} from './styledComponent.js'
+import {CounterAppContainer,ButtonStyle,FooterStyle,CounterTxtStyle} from './styledComponent.js'
 
 @observer 
 class CounterApp extends React.Component{
@@ -18,10 +18,12 @@ class CounterApp extends React.Component{
 
   
 onIncrement=()=>{
+    this.count = this.count + 1
     this.setCurrentCount(this.count);
 }
 
 ondecrement=()=>{
+    this.count = this.count - 1
     this.setCurrentCount(this.count);
 }
 handleOnchange=(event)=>{
@@ -34,8 +36,7 @@ handleOnchange=(event)=>{
         
         <FooterStyle>
         <ButtonStyle onClick={this.onIncrement}>+</ButtonStyle>
-        <CountValue><input type="number" onChange={(e)=>this.handleOnchange(e.target.value)} value={this.getCurrentCount()}/>
-                </CountValue>
+        <input type="number" onChange={(e)=>this.handleOnchange(e.target.value)} value={this.getCurrentCount()}/>
         <ButtonStyle onClick={this.ondecrement}>-</ButtonStyle></FooterStyle>
         </CounterAppContainer>
 }

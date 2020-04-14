@@ -57,7 +57,7 @@ onRemoveTodo(todo){
         let confirm = window.confirm("Do You Really Want to delete it..!")
         if (confirm) {
             let todosAry = [...this.todos]
-            let index:number = todosAry.indexOf(todo)
+            let index= todosAry.indexOf(todo)
             todosAry.splice(index, 1)
                 this.todos=todosAry;
         }

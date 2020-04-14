@@ -53,11 +53,11 @@ import './components/TodosList/index.css'
 //import './components/FormComponents/index.css'
 
 
-//import CountriesDashboardApp from './components/CountriesDashboardApp/CountriesDashboardApp'
-//import './components/CountriesDashboardApp/CountriesDashboardApp.css'
+import CountriesDashboardApp from './components/CountriesDashboardApp/CountriesDashboardApp'
+import './components/CountriesDashboardApp/CountriesDashboardApp.css'
 
-//import SpeceficCountryCard from './components/speceficCountryCard/speceficCountryCard'
-//import './components/CountriesDashboardApp/CountriesDashboardApp.css'
+import SpeceficCountryCard from './components/speceficCountryCard/speceficCountryCard'
+import './components/CountriesDashboardApp/CountriesDashboardApp.css'
 
 import EmojiGame from "./components/EmojiGame/EmojiGame";
 import CounterApp from "./components/CounterApp/CounterApp";
@@ -146,19 +146,19 @@ class App extends React.Component {
               <Link to="/TodosList">TodosList</Link>
             </li>
 
-        {/*<li>
+       {/* <li>
               <Link to="/FormComponents">Form Components</Link>
             </li>*/}
             
             
-            {/*<li>
+            <li>
               <Link to="/CountriesDashboardApp">Countries Dashboard App</Link>
-            </li>*/}
+            </li>
             
                       <li>
               <Link to="/EmojiGame">Emoji Game</Link>
             </li>            
-                      <li>
+            <li>
               <Link to="/CounterApp">Counter App</Link>
             </li>    
             
@@ -193,19 +193,19 @@ class App extends React.Component {
           <TodosList/>
           </Route>
           
-        {/*<Route path="/FormComponents">
+       {/* <Route path="/FormComponents">
           <FormComponents/>
           </Route>*/}
          
                        
-        {/*<Route path="/CountriesDashboardApp/details/:id">
+        <Route path="/CountriesDashboardApp/details/:id">
           <SpeceficCountryCard onChangeTheme={this.onChangeTheme} selectedTheme={this.getCurrentTheme()}/>
-          </Route>*/}
+          </Route>
               
               
-        {/*<Route path="/CountriesDashboardApp">
+        <Route path="/CountriesDashboardApp">
           <CountriesDashboardApp  onChangeTheme={this.onChangeTheme} selectedTheme={this.getCurrentTheme()}/>
-          </Route>*/}
+          </Route>
           
       {/*  <Route path="/CountriesDashboardApp">
           <CountriesDashboardApp  onChangeTheme={this.onChangeTheme} selectedTheme={this.getCurrentTheme()}/>

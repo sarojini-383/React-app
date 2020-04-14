@@ -8,16 +8,9 @@ import todoStore from "../../stores/TodoStore/TodoStore";
 import Todo from "../../stores/models/Todo"
 
 
-type todoObj={
- checkedStatus:boolean
- todoContent:string
-}
-type addTodoProps={
- todoObj:todoObj
-}
 
 @observer
-class AddTodo extends React.Component<addTodoProps> {
+class AddTodo extends React.Component{
  
     render() {
      let todoInstance =new Todo(event);
