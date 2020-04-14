@@ -3,21 +3,36 @@ import {observable,computed} from "mobx";
 import {observer} from "mobx-react"; 
 
 let todoId = 1;
+
+
+type todoProps={
+    //onClick:()=>void
+    removeTodo:Function
+    handlecheck:Function
+    todoObj:any
+}
+
 @observer
-class Todo extends React.Component {
+class Todo extends React.Component<todoProps> {
     render() {
+        let {todoObj,removeTodo,handlecheck} =this.props
         return <div className="todo-block">
-        <input  className="check-box"   checked={this.props.todoObj.checkedStatus} onClick={()=>this.props.handlecheck(this.props.todoObj)} type="checkBox"/>
-        <input  className="input-text"  disabled={this.props.todoObj.checkedStatus} defaultValue={this.props.todoObj.todoContent} type="text"/>
-        <button className="remove-btn" onClick={() =>this.props.removeTodo(this.props.todoObj)}>X</button>
+        <input  className="check-box"   checked={todoObj.checkedStatus} onClick={()=>handlecheck(todoObj)} type="checkBox"/>
+        <input  className="input-text"  disabled={todoObj.checkedStatus} defaultValue={todoObj.todoContent} type="text"/>
+        <button className="remove-btn"  onClick={()=>removeTodo(todoObj)}>X</button>
         </div>
     }
 }
 
-@observer
-class TodoApp extends React.Component {
+type todoAppProps={
+    
+    
+    //userTodoList:Array<string>
+}
+@observer 
+class TodoApp extends React.Component<todoAppProps> {
 
-@observable userTodoList= []
+@observable userTodoList:any= []
 @observable filterState= "All"
 @observable  todoItemsLeft= false
 @observable  clearcompletedDisplay= false 
@@ -27,10 +42,10 @@ class TodoApp extends React.Component {
     }
   
     userInput = (event) => {
-        let obj = {}
-        obj.todoContent = event.target.value;
-        obj.checkedStatus = false;
-        obj.id = todoId;
+        let obj:any = {}
+        obj.todoContent = event.target.value
+        obj.checkedStatus= false
+        obj.id= todoId
 
         if (this.userTodoList.length >= 0 && event.key === 'Enter') {
             if (event.target.value === "")
@@ -41,7 +56,6 @@ class TodoApp extends React.Component {
         }
     }
     addTodo = (obj) => {
-
      this.userTodoList = [...this.userTodoList, obj]
         todoId += 1;
          this.todoItemsLeft= true;
@@ -54,7 +68,7 @@ class TodoApp extends React.Component {
             let todosAry = [...this.userTodoList]
 
             let index = todosAry.indexOf(userTodo)
-            todosAry.splice(parseInt(index), 1)
+            todosAry.splice(index, 1)
 
                 this.userTodoList=todosAry;
         }
@@ -111,7 +125,7 @@ class TodoApp extends React.Component {
         switch (filterState) {
             case "All":
                 return [...this.userTodoList].map((todo) =>
-                    <Todo key={todo.id} handlecheck ={this.OnhandleCheck} todoObj={todo} removeTodo={this.OnremoveTodo} />
+                    <Todo key ={todo.id} handlecheck ={this.OnhandleCheck} todoObj={todo} removeTodo={this.OnremoveTodo} />
                 )
 
             case "Active":

@@ -1,18 +1,18 @@
 import React from "react"
 import {observer} from "mobx-react";  
-import {observable,action,toJS} from 'mobx'
+import {observable,action} from 'mobx'
 
-import Event from "../../stores/models/Todo.js"; 
-import eventStore from "../../stores/EventStore/EventStore.js"
+// import Event from "../../stores/models/Todo"; 
+import eventStore from "../../stores/EventStore/EventStore"
 
-import {EventAppContainer,Events,EventTag,AddEventBtn} from './StyledComponent.js'
+import {EventAppContainer,Events,EventTag,AddEventBtn} from './StyledComponent'
 
 
 @observer
 class AddEvent extends React.Component {
 
-@observable eventName="";
-@observable eventLocation="";
+@observable eventName:string="";
+@observable eventLocation:string="";
 
 @action.bound
    onChangeEventName(e){

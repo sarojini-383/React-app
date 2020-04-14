@@ -1,12 +1,10 @@
 import React from "react"
-
 import {observer} from "mobx-react";  
-import {toJS,action} from 'mobx'
-import todoStore from "../../stores/TodoStore/TodoStore.js"; 
-import Todo from "../../stores/models/Todo.js"; 
 
-import AddTodo from "./AddTodo.js"; 
-import TodoFooter from "./TodoFooter.js"; 
+import todoStore from "../../stores/TodoStore/TodoStore"; 
+
+import AddTodo from "./AddTodo"; 
+import TodoFooter from "./TodoFooter"; 
 
 
 

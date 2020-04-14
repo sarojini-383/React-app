@@ -1,14 +1,14 @@
 import {action,observable,toJS} from 'mobx'
 
-import Event from "../../stores/models/Event.js"; 
+import Event from "../../stores/models/Event"; 
+
+
 
 class EventStore{
-@observable events=[];
+@observable events:Array<Event> =[];
 
 @action.bound  
   onAddEvent(name,location){
-    
-//console.log(event)
 let eventInstance =new Event(name,location)
 this.events.push(toJS(eventInstance));
 
@@ -16,8 +16,8 @@ this.events.push(toJS(eventInstance));
 
 onDeleteEvent(event){
             let eventsAry = [...this.events]
-            let index = eventsAry.indexOf(event)
-            eventsAry.splice(parseInt(index), 1)
+            let index:number = eventsAry.indexOf(event)
+            eventsAry.splice(index, 1)
             this.events=eventsAry;
 } 
 }

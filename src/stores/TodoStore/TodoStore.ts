@@ -1,6 +1,6 @@
-import {observable,action,computed,reaction} from "mobx";   
+import {observable,action,computed} from "mobx";   
 
-import Todo from "../../stores/models/Todo.js"; 
+import Todo from "../../stores/models/Todo"; 
 
 
 class TodoStore{
@@ -44,7 +44,7 @@ class TodoStore{
 @action.bound
 onAddTodo(event){
    let todoInstance =new Todo(event)
-   this.todos.push(todoInstance.todoobj);
+   this.todos.push(todoInstance.todoObj);
 }    
 
 @action.bound
@@ -57,8 +57,8 @@ onRemoveTodo(todo){
         let confirm = window.confirm("Do You Really Want to delete it..!")
         if (confirm) {
             let todosAry = [...this.todos]
-            let index = todosAry.indexOf(todo)
-            todosAry.splice(parseInt(index), 1)
+            let index:number = todosAry.indexOf(todo)
+            todosAry.splice(index, 1)
                 this.todos=todosAry;
         }
 }

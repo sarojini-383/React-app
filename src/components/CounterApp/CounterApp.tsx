@@ -1,15 +1,15 @@
 import React from "react";
-import {CounterAppContainer,ButtonStyle,FooterStyle,CounterTxtStyle,CountValue} from './styledComponent.js'
-
 import {observable} from "mobx"; 
 import {observer} from "mobx-react"; 
+
+import {CounterAppContainer,ButtonStyle,FooterStyle,CounterTxtStyle,CountValue} from './styledComponent.js'
 
 @observer 
 class CounterApp extends React.Component{
 @observable count=0;
 
   getCurrentCount=()=>{
- return this.count;  
+ return this.count; 
   }
   
   setCurrentCount=(count)=>{

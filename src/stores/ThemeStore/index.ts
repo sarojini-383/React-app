@@ -1,5 +1,4 @@
-
-import {observable,reaction} from "mobx"; 
+import {observable} from "mobx"; 
 
 class ThemeStore{
     
@@ -8,7 +7,7 @@ class ThemeStore{
         this.selectedTheme="Light mode"
     }
     
-    setCurrentTheme(theme){
+    setCurrentTheme(){
    
    if (this.selectedTheme==='Light mode') {
       this.selectedTheme='Dark mode';

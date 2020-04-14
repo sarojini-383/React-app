@@ -1,6 +1,6 @@
 import React from "react"
 
-import todoStore from "../../stores/TodoStore/TodoStore.js"; 
+import todoStore from "../../stores/TodoStore/TodoStore" 
 
 class TodoList extends React.Component {
  

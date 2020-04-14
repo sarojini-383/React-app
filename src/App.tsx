@@ -31,45 +31,42 @@
 // export default App;
 
 import React from 'react';
+//import { render } from "react-dom";
 
-
-import { render } from "react-dom";
-import {observable} from "mobx"; 
 //import {configure,action} from 'mobx'
-
 import {observer} from "mobx-react"; 
-import themeStore from "./stores/ThemeStore"; 
+
 
 //configure({enforceActions:true});
 
-
+import themeStore from "./stores/ThemeStore"; 
 import { CarsList } from './components/CarsList'
 import './components/CarsList/carsListCss.css'
 
-import { TodoApp } from './components/MobxTodosList/TodoApp.js'
-import TodosApp  from './components/TodoListByStoreAndModel/TodosApp.js'
+import { TodoApp } from './components/MobxTodosList/TodoApp'
+import TodosApp  from './components/TodoListByStoreAndModel/TodosApp'
 
-import { TodosList } from './components/TodosList/index.js'
+import { TodosList } from './components/TodosList/index'
 import './components/TodosList/index.css'
 
 //import { FormComponents } from './components/FormComponents'
 //import './components/FormComponents/index.css'
 
 
-import CountriesDashboardApp from './components/CountriesDashboardApp/CountriesDashboardApp.js'
-import './components/CountriesDashboardApp/CountriesDashboardApp.css'
+//import CountriesDashboardApp from './components/CountriesDashboardApp/CountriesDashboardApp'
+//import './components/CountriesDashboardApp/CountriesDashboardApp.css'
 
-import SpeceficCountryCard from './components/speceficCountryCard/speceficCountryCard.js'
-import './components/CountriesDashboardApp/CountriesDashboardApp.css'
+//import SpeceficCountryCard from './components/speceficCountryCard/speceficCountryCard'
+//import './components/CountriesDashboardApp/CountriesDashboardApp.css'
 
-import EmojiGame from "./components/EmojiGame/EmojiGame.js";
-import CounterApp from "./components/CounterApp/CounterApp.js";
+import EmojiGame from "./components/EmojiGame/EmojiGame";
+import CounterApp from "./components/CounterApp/CounterApp";
 
-import EventsApp from "./components/EventsApp/EventsApp.js";
+import EventsApp from "./components/EventsApp/EventsApp";
 
-import  A  from './components/ReactInject/index.js'
+import  A  from './components/ReactInject/index'
 
-import logo from './logo.svg';
+//ibmport logo from './logo.svg';
 import './App.css';
 
 
@@ -79,8 +76,10 @@ import {
   Route,
   Link,
 }
-from "react-router-dom";
-
+from "react-router-dom"
+// type appProps={
+//   onChangeTheme:()=>void
+// }
 @observer 
 class App extends React.Component {
   
@@ -152,9 +151,9 @@ class App extends React.Component {
             </li>*/}
             
             
-            <li>
+            {/*<li>
               <Link to="/CountriesDashboardApp">Countries Dashboard App</Link>
-            </li>
+            </li>*/}
             
                       <li>
               <Link to="/EmojiGame">Emoji Game</Link>
@@ -199,18 +198,18 @@ class App extends React.Component {
           </Route>*/}
          
                        
-        <Route path="/CountriesDashboardApp/details/:id">
+        {/*<Route path="/CountriesDashboardApp/details/:id">
           <SpeceficCountryCard onChangeTheme={this.onChangeTheme} selectedTheme={this.getCurrentTheme()}/>
-          </Route>
+          </Route>*/}
               
               
         {/*<Route path="/CountriesDashboardApp">
           <CountriesDashboardApp  onChangeTheme={this.onChangeTheme} selectedTheme={this.getCurrentTheme()}/>
           </Route>*/}
           
-        <Route path="/CountriesDashboardApp">
+      {/*  <Route path="/CountriesDashboardApp">
           <CountriesDashboardApp  onChangeTheme={this.onChangeTheme} selectedTheme={this.getCurrentTheme()}/>
-          </Route>
+          </Route>*/}
             
         <Route path="/EmojiGame">
           <EmojiGame  />

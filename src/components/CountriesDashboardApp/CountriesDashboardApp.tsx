@@ -1,17 +1,19 @@
+
 /*global fetch*/
 import React from 'react';
 import themeStore from "../../stores/ThemeStore"; 
-import {observable} from "mobx"; 
+//import {observable} from "mobx"; 
+
 import {observer} from "mobx-react"; 
 
 
-import { Header } from '../Header/Header.js'
+import { Header } from '../Header/Header'
 import '../Header/Header.css'
 
-import { SelectRegion } from '../SelectRegion/SelectRegion.js'
+import { SelectRegion } from '../SelectRegion/SelectRegion'
 import '../SelectRegion/SelectRegion.css'
 
-import { SearchCountry } from '../SearchCountry/SearchCountry.js'
+import { SearchCountry } from '../SearchCountry/SearchCountry'
 import '../SearchCountry/SearchCountry.css'
 
 import { Countries } from '../Countries/Countries.js'
@@ -19,8 +21,21 @@ import '../Countries/Countries.css'
 
 import {CountriesFilterBarContainer,CountryCardContainer,Loading} from '../styledComponentForCountryDashBoard.js'
 
+// type countryDetails={
+//     region:string
+// }
+
+type countriesDashboardAppProps={
+//onChangeTheme:()=>void;
+onChangeTheme:Function;
+//countries:countryDetails
+
+}
+// type IState={
+//   allCountries:Array<string> 
+// }
 @observer 
-class CountriesDashboardApp extends React.Component {
+class CountriesDashboardApp extends React.Component<countriesDashboardAppProps> {
 
     state = {
       allCountries: [],
@@ -37,21 +52,21 @@ class CountriesDashboardApp extends React.Component {
             );
     }
 
-    getRegionOptions = (json) => {
-        const reqRegionsList = [...new Set(json.map(cntry => cntry.region))];
-        this.setState({ regionsList: reqRegionsList })
+    // getRegionOptions = (json) => {
+    //     const reqRegionsList = [...new Set(json.map(cntry => cntry.region))];
+    //     this.setState({ regionsList: reqRegionsList })
 
-    }
+    // }
 
     getCountries = (json) => {
-        let countryDetails = [];
+        let countryDetails:any = [];
         json.forEach(item => {
             countryDetails.push(item)
         });
 
         this.setState({ countries: countryDetails })
         this.setState({ allCountries: countryDetails })
-        this.getRegionOptions(countryDetails)
+        //this.getRegionOptions(countryDetails)
 this.filterCountriesByRegion()
     }
 
@@ -64,7 +79,6 @@ this.filterCountriesByRegion()
     }
 
     onChangeSelectedRegion = (event) => {
-
         let selectedRegion = event.target.value;
         this.setState({ selectedRegion: event.target.value });
         this.combinationSearch(this.state.searchedTxt, selectedRegion);
@@ -75,30 +89,31 @@ this.filterCountriesByRegion()
 
     combinationSearch = (searchedTxt, selectedRegion) => {
         
+        let {allCountries}=this.state;
+        
         if (searchedTxt === "" && selectedRegion === 'All') {
-            this.setState({ countries: this.state.allCountries });
+            this.setState({ countries: allCountries });
         }
 
         else if (searchedTxt !== "" && selectedRegion === 'All') {
-            console.log(this.state.allCountries)
-            let countriesByName = this.state.allCountries.filter((item) => item.name.toLowerCase().search(searchedTxt.toLowerCase()) !== -1);
+            let countriesByName = allCountries.filter((item:any) => item.name.toLowerCase().search(searchedTxt.toLowerCase()) !== -1);
             this.setState({ countries: countriesByName });
         }
 
         else if (searchedTxt === "" && selectedRegion !== 'All') {
-            let countriesByRegion = this.state.allCountries.filter((item) => item.region.toLowerCase().search(selectedRegion.toLowerCase()) !== -1);
-
+            let countriesByRegion = allCountries.filter((item:any) => item.region.toLowerCase().search(selectedRegion.toLowerCase()) !== -1);
             this.setState({ countries: countriesByRegion });
         }
 
         else if (searchedTxt != "" && selectedRegion !== 'All') {
-            let countriesByName = this.state.allCountries.filter((item) => item.name.toLowerCase().search(searchedTxt.toLowerCase()) !== -1);
-            let result = countriesByName.filter((item) => item.region.toLowerCase().search(selectedRegion.toLowerCase()) !== -1);
-            this.setState({ countries: result });
+            let countriesByName = allCountries.filter((item:any) => item.name.toLowerCase().search(searchedTxt.toLowerCase()) !== -1);
+            let result = countriesByName.filter((item:any) => item.region.toLowerCase().search(selectedRegion.toLowerCase()) !== -1);
+           this.setState({ countries: result })
         }
     }
     filterCountriesByRegion = () => {
-        let filteredRegions = [...new Set(this.state.allCountries.map(cntry => cntry.region))];
+      let {allCountries}=this.state;  
+        let filteredRegions= [...new Set(allCountries.map(cntry=> cntry.region))];
         return filteredRegions
     }
 
@@ -114,8 +129,9 @@ this.filterCountriesByRegion()
   }
 
     render() {
+        let {onChangeTheme}=this.props;
         return (<div className={this.getCurrentTheme() === 'Dark mode' ?'dark-mode':'light-mode'}>
-        <Header   onChangeTheme={this.props.onChangeTheme} selectedTheme={this.getCurrentTheme()}/>
+        <Header   onChangeTheme={onChangeTheme} selectedTheme={this.getCurrentTheme()}/>
         
    
      

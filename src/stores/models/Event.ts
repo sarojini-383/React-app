@@ -1,18 +1,16 @@
-//import React from "react"
-
 import {observable,action} from "mobx";   
-import {observer} from 'mobx-react'
 
-import eventStore from "../../stores/EventStore/EventStore.js"; 
+
+
 
 
 class Event{
-@observable id
-@observable name
-@observable eventLocation
+@observable id:string
+@observable name:string
+@observable eventLocation:string
 
 constructor(name,location){
-          this.id=Math.random();
+          this.id=Math.random().toString();
           this.name =name;
           this.eventLocation =location;
 }

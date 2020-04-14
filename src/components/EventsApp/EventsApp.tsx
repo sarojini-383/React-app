@@ -1,22 +1,21 @@
 import React from "react"
-import {action} from 'mobx'
 import {observer} from 'mobx-react'
-import eventStore from "../../stores/EventStore/EventStore.js"
-import {EventListStyle,Editbutton,Delbutton} from './StyledComponent.js'
 
-import AddEvent from './AddEvent.js'
+import eventStore from "../../stores/EventStore/EventStore"
+import Event from "../../stores/models/Event"; 
+
+import {EventListStyle,Editbutton,Delbutton} from './StyledComponent'
+
+import AddEvent from './AddEvent'
+
 
 @observer
 class EventsApp extends React.Component {
     
- onChangeEventName(){
-//console.log(event.target.value);
-
- }
  
  renderEvents(){
-  //console.log('lo',eventStore.events.eventlocation)
- return  eventStore.events.map(event=> <EventListStyle>
+  
+ return  eventStore.events.map(event => <EventListStyle>
  <div key={event.id} ><p>Event Name:{event.name}</p>
  <p>Event Location:{event.eventLocation}</p></div>
  <div><Editbutton>Edit</Editbutton>
