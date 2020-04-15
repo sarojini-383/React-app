@@ -7,7 +7,8 @@ import gameStore from '../../../stores/GameStore'
 class Header extends React.Component {
   
     render() {
-        console.log(gameStore.level)
+        alert('kim')
+        console.log("level in header",gameStore.level)
         return (
             <GridGameHeader>
             <div>Level:{gameStore.level}</div>
