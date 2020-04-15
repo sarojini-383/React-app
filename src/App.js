@@ -66,6 +66,8 @@ import EventsApp from "./components/EventsApp/EventsApp";
 
 import  A  from './components/ReactInject/index'
 
+import GridMemoryGame from "./components/GridMemoryGame/index.js";
+
 //ibmport logo from './logo.svg';
 import './App.css';
 
@@ -77,49 +79,19 @@ import {
   Link,
 }
 from "react-router-dom"
-// type appProps={
-//   onChangeTheme:()=>void
-// }
+
 @observer 
 class App extends React.Component {
   
-//@observable selectedTheme="Light mode"
-  // state = {
-  //   selectedTheme: 'Light mode',
-    
-  // }
   getCurrentTheme=()=>{
- // return this.selectedTheme;  
   return themeStore.selectedTheme;  
-  
   }
-// @action 
+
     onChangeTheme=()=>{
    themeStore.setCurrentTheme();  
-  //this.selectedTheme=theme
-  //console.log('currentTheme',this.selectedTheme)
   }
   
-  // onChangeTheme = () => {
 
-  //   if (this.state.selectedTheme === 'Light mode') {
-  //     this.setState({ selectedTheme: 'Dark mode' });
-  //   }
-  //   else {
-  //     this.setState({ selectedTheme: 'Light mode' });
-  //   }
-  // }
-  
-  // onChangeTheme = () => {
-
-  //   if (this.getCurrentTheme() ==='Light mode') {
-  //     this.setCurrentTheme('Dark mode');
-  //   }
-  //   else {
-  //     this.setCurrentTheme('Light mode');
-  //   }
-  // }
-  
   render() {
     return (
       <Router basename={process.env.PUBLIC_URL}>
@@ -165,7 +137,10 @@ class App extends React.Component {
                           <li>
               <Link to="/inject">Inject</Link>
             </li>
-
+                          <li>
+              <Link to="/Grid">Grid</Link>
+            </li>
+            
           </ul>
         </nav>
 
@@ -222,7 +197,9 @@ class App extends React.Component {
            <Route path="/inject">
           <A />
           </Route> 
-    
+               <Route path="/Grid">
+          <GridMemoryGame />
+          </Route> 
     
         </Switch>
       </div>
