@@ -1,7 +1,6 @@
 import {observable} from 'mobx'
 
-//import gridInfo from './Json.js'
-
+let c=0;
 class GameStore{
 @observable level=0;
 @observable topLevel=0;
@@ -11,16 +10,13 @@ class GameStore{
 
 
 updateGridGameInfo=(gridInstance,gridInfo)=>{
-    
     this.currentLevelGridCells.push(gridInstance)
-   // console.log(gridInfo)
-    
     }
 
 setGridCells=()=>{
+
     let arr =this.currentLevelGridCells;
     let n=this.selectedCellsCount;
-    //console.log(arr.length)
     var result = new Array(n),
         len = arr.length,
         taken = new Array(len);
@@ -29,18 +25,23 @@ setGridCells=()=>{
     while (n--) {
         var x = Math.floor(Math.random() * len);
         result[n] = arr[x in taken ? taken[x] : x];
-        result[n].isHidden=true;
+        this.currentLevelGridCells[n].isHidden=true;
         taken[x] = --len in taken ? taken[len] : len;
     }
-    console.log("main",arr)
-   // console.log("random",result);
-    this.currentLevelGridCells=result
+      let temp = this.currentLevelGridCells;
+    for (let i = temp.length - 1; i > 0; i--) {
+      let j = Math.floor(Math.random() * (i + 1));
+      [temp[i], temp[j]] = [temp[j], temp[i]];
+    }
+    this.currentLevelGridCells= temp;
 }
 
-updateCurrentGridCells=(result)=>{
-       console.log("random1",result); 
-      // const {currentLevelGridCells}=this.currentLevelGridCells;
-    // currentLevelGridCells.map(i=>console.log(i))  
+onCellClick=()=>{
+  let a =this.currentLevelGridCells.filter(eachCell=>eachCell.isHidden===true)
+    if (a.length===0){
+      this.level+=1;
+        alert('level')
+  }
 }
 
 }

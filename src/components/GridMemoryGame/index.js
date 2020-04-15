@@ -16,12 +16,10 @@ import CellModel from '../../stores/models/Cell'
 @observer
 class GridMemoryGame extends React.Component{
   
-@observable level=0;
-
     constructor(props){
         super(props);
-       
-        const gridSize=gridInfo[this.level].gridSize;
+       console.log("level",this.level);
+        const gridSize=gridInfo[gameStore.level].gridSize;
       
         for(let i=0;i< gridSize*gridSize; i++){
          let gridInstance =new CellModel()

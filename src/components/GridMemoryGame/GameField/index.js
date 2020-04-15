@@ -7,10 +7,13 @@ import {GridsField} from '../styledcomponent.js'
 
 class GameField extends React.Component{
     
-  
+
     renderGridArray=()=>{
         const {cells} =this.props;
-        return <div style={{display:'flex',flexWrap:'wrap', width:'300px'}}>{gameStore.currentLevelGridCells.map(i=><Cell />)}</div>
+        return <div style={{display:'flex',flexWrap:'wrap', width:'300px'}}>
+        {gameStore.currentLevelGridCells.map(eachCell=>
+        <Cell key={eachCell.id} eachCell={eachCell} onCellClick={this.onCellClick}/>)}
+        </div>
     }
     
     render(){
