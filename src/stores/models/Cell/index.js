@@ -1,13 +1,15 @@
 import {observable} from 'mobx';
 
 class CellModel{
-    @observable id='';
-    @observable isHidden='';
+@observable id='';
+@observable isHidden='';
+//@observable isClicked='';
+
 
     constructor(){
-        //super(props);
         this.id=Math.random();
         this.isHidden=false;
+       // this.isClicked=false;
     }    
 }
 

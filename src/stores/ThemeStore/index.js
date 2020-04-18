@@ -1,25 +1,20 @@
 import {observable} from "mobx"; 
 
 class ThemeStore{
-    
-    @observable selectedTheme
+@observable selectedTheme
     constructor(){
-        this.selectedTheme="Light mode"
+        this.selectedTheme="Dark";
     }
     
-    setCurrentTheme(){
-   
-   if (this.selectedTheme==='Light mode') {
-      this.selectedTheme='Dark mode';
+    setCurrentTheme(theme){
+        if (theme==='Dark') {
+            this.selectedTheme='Light';
+        }
+        else {
+            this.selectedTheme='Dark';
+        }
     }
-    else {
-      this.selectedTheme='Light mode';
-    }
-    }
-    
-   // selectedThemeReaction=reaction(()=>{return this.selectedTheme},(theme)=>{alert(`myTheme ${theme}`)})
-}
+   }
 
-
-const themeStore=new ThemeStore()
-export default themeStore
+const themeStore=new ThemeStore();
+export default themeStore;
