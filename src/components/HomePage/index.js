@@ -18,7 +18,9 @@ function App() {
         >
           Learn React
         </a>
-        <Link to="/page-1">Page 1</Link>
+        <Link to="/page-1">Grid Game</Link>
+        <Link to="/page-2">TodoList </Link>
+        <Link to="/page-3">TodoList Using store Store And Model</Link>
       </header>
     </div>
   );

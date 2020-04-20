@@ -9,7 +9,7 @@ background-color:${props=>props.theme==="Light"?'#fff':' #2a4365'};
 color:${props=>props.theme==="Light"?'black':'white'};
 `;
 
-const GridGameHeader=styled.div`${tw ` flex content-center  justify-between m-3`}
+const GridGameHeader=styled.div`${tw ` flex content-center  justify-between m-2`}
 width:${props=>props.width}`;
 
 const GridsField=styled.div`${tw `flex flex-wrap`}

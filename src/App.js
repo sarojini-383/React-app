@@ -3,8 +3,13 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import HomePage from "./components/HomePage";
 import Page1 from "./components/Page1";
-//import CounterPage from "./components/CounterPage";
+
 import GridMemoryGame from "./components/GridMemoryGame/index.js";
+
+import { TodosList } from './components/TodosList/index'
+import './components/TodosList/index.css'
+
+import TodosApp  from './components/TodoListByStoreAndModel/TodosApp.js'
 
 
 import "./App.css";
@@ -13,6 +18,7 @@ const App = () => {
   return (
     <Router basename={process.env.PUBLIC_URL}>
       <Switch>
+      
       {/* <Route exact path="/counter-page">
           <CounterPage />
         </Route>...remove*/}
@@ -21,6 +27,16 @@ const App = () => {
         <Route exact path="/page-1">
           <GridMemoryGame />
         </Route>
+        
+        <Route exact path="/page-2">
+          <TodosList />
+        </Route>
+        
+        <Route exact path="/page-3">
+          <TodosApp />
+        </Route>
+        
+        
         <Route path="/">
           <HomePage />
         </Route>
@@ -37,6 +53,7 @@ export default App;
 
 // //import {configure,action} from 'mobx'
 // import {observer} from "mobx-react"; 
+//import CounterPage from "./components/CounterPage";
 
 
 // //configure({enforceActions:true});

@@ -1,20 +1,17 @@
 import React from 'react';
-import gameStore from '../../../stores/GameStore';
-import themeStore from '../../../stores/ThemeStore';
-import Header from '../Header';
 
-import {GameResultContainer,WishTxtStyle,LevelStyle,PlayAgainButtonStyle} from '../styledcomponent' 
+import {GameResultContainer,WishTxtStyle,PlayAgainButtonStyle} from '../styledcomponent' ;
 
 class GameResult extends React.Component {
+   
     render() {
+        const {onPlayAgainClick}=this.props;
         return(
             <GameResultContainer>
-            {/*<LevelStyle>{gameStore.level}</LevelStyle>
-            <Header />*/}
-            <WishTxtStyle>Congratulations! You Completed all the levels.</WishTxtStyle>
-            <PlayAgainButtonStyle onClick={gameStore.onPlayAgainClick} style={{backgroundColor:'blue', width:'100px'}}>Play Again</PlayAgainButtonStyle>
+                <WishTxtStyle>Congratulations! You Completed all the levels.</WishTxtStyle>
+                <PlayAgainButtonStyle onClick={onPlayAgainClick} style={{backgroundColor:'blue', width:'100px'}}>Play Again</PlayAgainButtonStyle>
             </GameResultContainer>);
     }
 }
 
-export default GameResult
+export default GameResult;

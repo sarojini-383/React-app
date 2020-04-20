@@ -4,24 +4,30 @@ import {observable,action,computed} from "mobx";
 import Todo from "../../stores/models/Todo"; 
 
 
+
 class TodoStore{
     
-    @observable todos
+    @observable todos;
     @observable selectedFilter
     @observable todosListFromNetwork=[];
+    @observable isLoading=false;
+   
     constructor(){
-       try {fetch('https://todo-list-2.getsandbox.com/todos')
+        this.todos=[];
+        this.selectedFilter='All'
+    }
+    fetchData=()=>{
+        
+           try {fetch('https://jsonplaceholder.typicode.com/todos')
             .then(response => response.json())
             .then(json =>
-               json.forEach(eachTodo=>this.todosListFromNetwork.push(eachTodo))
+               {json.forEach(eachTodo=>this.todos.push(eachTodo));
+               this.isLoading=true}
             );}
             catch(e){
                 alert('heyyyyyy')
             }
-        this.todos=[];
-        this.selectedFilter='All'
     }
-
 //  todosCountReaction=reaction(()=>{return this.todos.length},(len)=>{if(len===0)alert('congrats')})
  
 //  todosReaction=reaction(((this.todos).map(todo =>{return todo.todoContent})),(title)=>{alert(title)})
@@ -73,4 +79,4 @@ onRemoveTodo(todo){
 }
 }
 const todoStore=new TodoStore()
-export default todoStore
+export default todoStore;

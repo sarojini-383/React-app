@@ -5,7 +5,6 @@ import {observer} from 'mobx-react';
 import gameStore from '../../../stores/GameStore';
 import themeStore from '../../../stores/ThemeStore';
 
-import gridInfo from '../Json.js';
 import {CellStyle} from '../styledcomponent.js';
 
 @observer
@@ -14,14 +13,13 @@ class Cell extends React.Component{
 @observable shouldShowHiddenCells=true;
 @observable isClickedOnCell=false;
 gridColor='';
-gameLevel = gameStore.level;
+gameLevel=gameStore.level;
 InitialTimeOutId;
 timeOutIdToReset;
 timeOutIdForNextLevel;
 
-
-
     componentDidMount(){
+        
         this.InitialTimeOutId= setTimeout(()=>{
         this.shouldShowHiddenCells=false;
         this.timeOutIdToReset= setTimeout(()=>{
@@ -68,11 +66,11 @@ getGridColors=()=>{
   
     render(){
         this.getGridColors();
-        const {eachCell} =this.props;
-        const gridSize=gridInfo[gameStore.level].gridSize;
-        const gridWidth=gridInfo[gameStore.level].gridWidth;
-        return <CellStyle width={`${gridWidth/gridSize-10}px`} height={`${gridWidth/gridSize-10}px`} disabled={this.shouldShowHiddenCells} onClick={this.onCellClick} color={this.gridColor}>
-        {eachCell.isHidden?'yes':'No'}
+        const {gridWidth,gridSize} =this.props;
+        const currentCellWidth=`${gridWidth/gridSize-10}px`;
+        const currentCellHeight=`${gridWidth/gridSize-10}px`;
+        
+        return <CellStyle width={currentCellWidth} height={currentCellHeight} disabled={this.shouldShowHiddenCells} onClick={this.onCellClick} color={this.gridColor}>
         </CellStyle>;
         }
 
