@@ -17,7 +17,7 @@ class Header extends React.Component {
   }
   render() {
     const gridWidth=gridInfo[gameStore.level].gridWidth;
-    return (<GridGameHeader width={`${gridWidth}px`} theme={this.them} >
+    return (<GridGameHeader width={`${gridWidth}px`} theme={this.theme} >
                 <p>Level:{gameStore.level}</p>
                 <ThemeStyle onClick={this.onChangeSelectedTheme} >
                 Mode: Dark</ThemeStyle></GridGameHeader>);

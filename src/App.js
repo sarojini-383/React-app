@@ -13,12 +13,10 @@ const App = () => {
   return (
     <Router basename={process.env.PUBLIC_URL}>
       <Switch>
-        {/*  <Route exact path="/counter-page">
+      {/* <Route exact path="/counter-page">
           <CounterPage />
-        </Route>*/}
-          <Route exact path="/counter-page">
-          <GridMemoryGame />
-        </Route>
+        </Route>...remove*/}
+        
         
         <Route exact path="/page-1">
           <GridMemoryGame />
@@ -161,7 +159,7 @@ export default App;
 //           </Route>
           
 //           <Route path="/TodoListByStoreAndModel">
-//           <TodosApp/>
+//           <TodosApp />
 //           </Route>
          
 //         <Route path="/EventsApp">
@@ -213,6 +211,3 @@ export default App;
 // }
 
 // export default App;
-
-
-

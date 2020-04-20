@@ -41,13 +41,3 @@ class GridMemoryGame extends React.Component{
 }
 export default GridMemoryGame;
 
-/*
-        return<Main theme={themeStore.selectedTheme}>
-        {!gameStore.isGameCompleted?
-            <GridGameContainer  width={`${gridWidth}px`}> 
-            <LevelStyle>Top Level:{gameStore.topLevel}</LevelStyle>
-            <Header  />
-            <GameField />
-        </GridGameContainer>
-            :<GameResult />}</Main>;
-            */

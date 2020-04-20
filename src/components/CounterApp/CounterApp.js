@@ -24,6 +24,7 @@ onIncrement=()=>{
 
 ondecrement=()=>{
     this.count = this.count - 1
+    
     this.setCurrentCount(this.count);
 }
 handleOnchange=(event)=>{

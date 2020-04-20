@@ -81,6 +81,7 @@ goToInitialLevelAndUpdateCells=()=>{
   this.selectedCellsCount=0;
   this.level=0;
   this.isGameCompleted=false;
+  this.topLevel=this.level;
   this.updateGridGameInfo();
   }
 
@@ -89,6 +90,8 @@ resetGame=()=>{
   this.selectedCellsCount=0;
   this.level=0;
   this.isGameCompleted=false;
+ this.topLevel=this.level;
+  
   this.updateGridGameInfo();
   }
 }

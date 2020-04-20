@@ -15,9 +15,11 @@ class AddTodo extends React.Component{
     render() {
      let todoInstance =new Todo(event);
      let {todoObj} =this.props
+     /*todoContent*/
+
         return <div className="todo-block">
          <input  className="check-box" checked={todoObj.checkedStatus} onClick={()=>todoInstance.onCompleteTodo(todoObj)}  type="checkBox"/>
-        <input  className="input-text" disabled={todoObj.checkedStatus} defaultValue={todoObj.todoContent} type="text"/>
+        <input  className="input-text" disabled={todoObj.checkedStatus} defaultValue={todoObj.title} type="text"/>
         <button className="remove-btn" onClick={() =>todoStore.onRemoveTodo(todoObj)} >X</button>
    
        </div>

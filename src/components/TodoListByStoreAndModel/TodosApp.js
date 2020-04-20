@@ -20,15 +20,24 @@ class TodosApp extends React.Component {
   }
  }
  
+getTodosOfNetwork=(eachTodo)=>{
+    return <div className="paper">{todoStore.todosListFromNetwork.map((todo,index)=>
+      <AddTodo key=  {todo.id} todoObj={todo}/>)}</div>
+ }
+ 
  render(){
+  
      return <div>
+     
       <div className="header">todos</div>
       <input className="user-input"  onKeyDown={(event)=>{this.onSubmit(event)}}  type="text" id="myInput" placeholder="what needs to be done !">
       </input>
-      <div className="paper">{todoStore.filteredTodos.map(todo=><AddTodo key=  {todo.id} todoObj={todo}/>)}
-     </div>
+      {/*<div className="paper">{todoStore.filteredTodos.map(todo=><AddTodo key=  {todo.id} todoObj={todo}/>)}
+     </div>*/}
+     
+      {this.getTodosOfNetwork()}     
      {todoStore.todos.length>0?<div><TodoFooter /></div>:null}
-     </div>
+      </div>
  }   
 }
 

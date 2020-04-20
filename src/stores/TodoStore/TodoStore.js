@@ -1,3 +1,4 @@
+/*global fetch */
 import {observable,action,computed} from "mobx";   
 
 import Todo from "../../stores/models/Todo"; 
@@ -7,8 +8,16 @@ class TodoStore{
     
     @observable todos
     @observable selectedFilter
-    
+    @observable todosListFromNetwork=[];
     constructor(){
+       try {fetch('https://todo-list-2.getsandbox.com/todos')
+            .then(response => response.json())
+            .then(json =>
+               json.forEach(eachTodo=>this.todosListFromNetwork.push(eachTodo))
+            );}
+            catch(e){
+                alert('heyyyyyy')
+            }
         this.todos=[];
         this.selectedFilter='All'
     }

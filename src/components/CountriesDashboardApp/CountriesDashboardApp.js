@@ -36,7 +36,8 @@ class CountriesDashboardApp extends React.Component{
         fetch('https://restcountries.eu/rest/v2/all')
             .then(response => response.json())
             .then(json =>
-                this.getCountries(json)
+                {this.getCountries(json);
+                console.log(json);}
             );
     }
 
