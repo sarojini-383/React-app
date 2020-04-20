@@ -11,6 +11,7 @@ import './components/TodosList/index.css'
 
 import TodosApp  from './components/TodoListByStoreAndModel/TodosApp.js'
 
+import UsersPage  from './components/UsersPage/index.js'
 
 import "./App.css";
 
@@ -35,6 +36,9 @@ const App = () => {
         <Route exact path="/page-3">
           <TodosApp />
         </Route>
+        
+        <Route exact path="/user" component={UsersPage }/>
+
         
         
         <Route path="/">
