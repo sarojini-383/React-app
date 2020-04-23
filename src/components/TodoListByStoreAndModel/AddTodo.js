@@ -18,8 +18,8 @@ class AddTodo extends React.Component{
      /*todoContent*/
 
         return <div className="todo-block">
-         <input  className="check-box" checked={todoObj.checkedStatus} onClick={()=>todoInstance.onCompleteTodo(todoObj)}  type="checkBox"/>
-        <input  className="input-text" disabled={todoObj.checkedStatus} defaultValue={todoObj.title} type="text"/>
+        <input  className="check-box" defaultChecked={todoObj.checkedStatus} onClick={()=>todoInstance.onCompleteTodo(todoObj)}  type="checkBox"/>
+        <input  className="input-text" disabled={todoObj.checkedStatus} defaultValue={todoObj.todoContent} type="text"/>
         <button className="remove-btn" onClick={() =>todoStore.onRemoveTodo(todoObj)} >X</button>
    
        </div>

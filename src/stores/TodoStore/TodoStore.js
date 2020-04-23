@@ -9,25 +9,26 @@ class TodoStore{
     
     @observable todos;
     @observable selectedFilter
-    @observable todosListFromNetwork=[];
+  //  @observable todosListFromNetwork=[];
     @observable isLoading=false;
    
     constructor(){
         this.todos=[];
         this.selectedFilter='All'
     }
-    fetchData=()=>{
+    
+  /*  fetchData=()=>{
         
            try {fetch('https://jsonplaceholder.typicode.com/todos')
             .then(response => response.json())
             .then(json =>
-               {json.forEach(eachTodo=>this.todos.push(eachTodo));
+               {console.log(json),json.forEach(eachTodo=>this.todos.push(eachTodo));
                this.isLoading=true}
             );}
             catch(e){
                 alert('heyyyyyy')
             }
-    }
+    }*/
 //  todosCountReaction=reaction(()=>{return this.todos.length},(len)=>{if(len===0)alert('congrats')})
  
 //  todosReaction=reaction(((this.todos).map(todo =>{return todo.todoContent})),(title)=>{alert(title)})

@@ -1,6 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
+import {Provider} from 'mobx-react'
+import stores from './stores'
+
 import HomePage from "./components/HomePage";
 import Page1 from "./components/Page1";
 
@@ -12,11 +15,13 @@ import './components/TodosList/index.css'
 import TodosApp  from './components/TodoListByStoreAndModel/TodosApp.js'
 
 import UsersPage  from './components/UsersPage/index.js'
+import TodoAppByNetworkCalls  from './components/TodoAppByNetworkCalls/index.js'
 
 import "./App.css";
 
 const App = () => {
   return (
+    <Provider {...stores} >
     <Router basename={process.env.PUBLIC_URL}>
       <Switch>
       
@@ -25,21 +30,22 @@ const App = () => {
         </Route>...remove*/}
         
         
-        <Route exact path="/page-1">
+        <Route exact path="/grid">
           <GridMemoryGame />
         </Route>
         
-        <Route exact path="/page-2">
+        <Route exact path="/todo-1">
           <TodosList />
         </Route>
         
-        <Route exact path="/page-3">
+        <Route exact path="/todo-2">
           <TodosApp />
         </Route>
         
         <Route exact path="/user" component={UsersPage }/>
 
-        
+        <Route exact path="/todo-3" component={TodoAppByNetworkCalls }/>
+
         
         <Route path="/">
           <HomePage />
@@ -47,6 +53,7 @@ const App = () => {
 
       </Switch>
     </Router>
+    </Provider>
   );
 };
 
