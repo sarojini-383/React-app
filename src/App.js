@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import {Provider} from 'mobx-react'
 import stores from './stores'
+import EcommerceStores from './EcommerceSite/EcommerceStores'
 
 import HomePage from "./components/HomePage";
 import Page1 from "./components/Page1";
@@ -17,11 +18,16 @@ import TodosApp  from './components/TodoListByStoreAndModel/TodosApp.js'
 import UsersPage  from './components/UsersPage/index.js'
 import TodoAppByNetworkCalls  from './components/TodoAppByNetworkCalls/index.js'
 
+import LoginPage from './components/common/LoginPage'
+import SignInPage from './Authentication/components/SignInPage/SignInPage.js'
+import ProductsPage from './EcommerceSite/components/ProductsPage/ProductsPage.js'
+
 import "./App.css";
 
 const App = () => {
+  console.log(EcommerceStores)
   return (
-    <Provider {...stores} >
+    <Provider {...stores} {...EcommerceStores}>
     <Router basename={process.env.PUBLIC_URL}>
       <Switch>
       
@@ -29,6 +35,10 @@ const App = () => {
           <CounterPage />
         </Route>...remove*/}
         
+        
+        <Route exact path="/login">
+          <LoginPage />
+        </Route>
         
         <Route exact path="/grid">
           <GridMemoryGame />
@@ -45,6 +55,8 @@ const App = () => {
         <Route exact path="/user" component={UsersPage }/>
 
         <Route exact path="/todo-3" component={TodoAppByNetworkCalls }/>
+        <Route exact path="/ECommerse" component={ SignInPage }/>
+         <Route exact path="/ProductsPage" component={ ProductsPage }/>
 
         
         <Route path="/">
