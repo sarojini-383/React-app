@@ -83,6 +83,7 @@ class ProductStore{
   
   @computed
   get sortedAndFilteredProducts(){
+  
   if(this.sizeFilter.length===0){
    return this.products;
   }
@@ -109,8 +110,10 @@ class ProductStore{
   
  @computed
  get totalNoOfProductsDisplayed(){
+   //console.log("length")
    return this.sortedAndFilteredProducts.length;
   }
+  
   @action.bound
   onChangeSortBy(selectedSort){
    

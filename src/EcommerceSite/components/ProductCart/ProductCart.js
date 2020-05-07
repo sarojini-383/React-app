@@ -72,18 +72,3 @@ export default ProductCart;
 
 
 
-/*<div> 
-       <div><FiShoppingCart onClick={this.showCart} style={{width:'100px',height:'100px',color:'white',backgroundColor:'red' }} />
-        Cart</div>
-        <div>{this.shouldDisplayCart ? <CartContainer>
-       <FiShoppingCart onClick={this.showCart} style={{width:'100px',height:'100px',color:'white',backgroundColor:'red' }} />
-    
-       <RemoveBtn onClick={this.hideCart}>x</RemoveBtn>
-       <AddItemsTxt>Add some products in the cart</AddItemsTxt>
-       <CartList  cartStore={cartStore}/>
-     
-     <SubTotal cartStore={cartStore}  />
-    <CheckoutButton cartStore={cartStore} />
-
-            </CartContainer>:null}</div>
-     </div>*/

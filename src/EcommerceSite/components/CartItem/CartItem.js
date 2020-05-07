@@ -56,17 +56,3 @@ export default CartItem;
 
 
 
-  /*      cartProductList: Array[3]
-▶0: CartModel
-▶cartDetails: ProductModel
- cartItemId: 12
- productId: 12
- quantity: 0
-▶1: CartModel
-▶2: CartModel
-▶productStore: ProductStore
-▶productService: ProductService
- getProductListAPIStatus: 200
- getProductListAPIError: null
-▶productList: Array[16]
- sizeFilter: Array*/

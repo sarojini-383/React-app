@@ -1,6 +1,8 @@
 import { observable,action } from 'mobx';
 import {bindPromiseWithOnSuccess} from '@ib/mobx-promise'
 
+import {setAccessToken,clearUserSession} from '../../../utils/StorageUtils.js'
+
 import {
    API_INITIAL,
    API_FAILED,
@@ -8,12 +10,15 @@ import {
    API_SUCCESS,
 } from '@ib/api-constants';
 
+
 class AuthStore{
     
     @observable getUserSignInAPIStatus
     @observable getUserSignInAPIError
     @observable authAPIService
-    constructor(AuthService){
+    authService
+    constructor(authService){
+        this.authService=authService;
         this.init();
     }
     
@@ -21,23 +26,24 @@ class AuthStore{
     init(){
         this.getUserSignInAPIStatus=API_INITIAL;
         this.getUserSignInAPIError=null
+        this.authAPIService={}
     }
     
     @action.bound
-    setGetUserSignInAPIError(apiStatus){
+    setUserSignInAPISatus(apiStatus){
         this.getUserSignInAPIStatus=apiStatus;
     }
     
     
     @action.bound
-    setGetUserSignInAPIError(error){
+    setUserSignInAPIError(error){
         this.getUserSignInAPIError=error;
     }
     
     @action.bound
     setUserSignInAPIResponse(response){
+        setAccessToken(response[0].access_token)
         /* Adds access token to the cookies */
-        console.log("response",response)
     }
     
     
@@ -45,16 +51,18 @@ class AuthStore{
     
     @action.bound
     userSignIn(){
-        alert('came')
-        const userSignInPromise=this.AuthService.signInAPI() 
-    
-        return bindPromiseWithOnSuccess(userSignInPromise)
-        .to(this.setUserSignInAPIStatus,this.setUserSignInAPIResponse,)
-        .catch(this.setGetUserSignInAPIError)
+        
+        const userSignInPromise=this.authService.signInAPI() 
+        return (bindPromiseWithOnSuccess(userSignInPromise)
+        .to(this.setUserSignInAPISatus,this.setUserSignInAPIResponse,)
+        .catch(this.setUserSignInAPIError));
     }
     
     @action.bound
     userSignOut(){
+        
+        clearUserSession();
+        this.init()
         /* Removes access token from cookies */
     }
     

@@ -32,7 +32,7 @@ class Product extends React.Component{
       const {imageURL,title,currencyFormat,price,installmentsCount,isFreeShipping}= product;
       const installmentValue = (price/installmentsCount).toFixed(2);
       
-      console.log(product)
+      
      return <ProductContainer>
             <ProductFreeShipping>{isFreeShipping?<div>isFreeShipping</div>:null}</ProductFreeShipping>
             <ProductImage  src={imageURL} ></ProductImage>

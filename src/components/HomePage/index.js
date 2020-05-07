@@ -2,15 +2,16 @@ import React from "react";
 import { Link,Redirect } from "react-router-dom";
 import logo from "../../logo.svg";
 
+import {getAccessToken,ACCESS_TOKEN,getCookie} from '../../utils/StorageUtils.js'
 
 class App extends React.Component{
   
-  render(){
+  //render(){
     
     // if(true){
     //   return this.gotoGridDScreenIfLoggedIn()
     // }
-    return (
+    /*return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
@@ -36,8 +37,24 @@ class App extends React.Component{
     
       </header>
     </div>
-  );
+  );*/
+  getSignInPage=()=>{
+   
+    return <Redirect 
+    to="/ECommerse"
+    />
   }
+  
+  getProductsPage=()=>{
+
+     return  <Redirect 
+    to="/ProductsPage"
+    /> 
+  }
+  render(){
+    return getAccessToken()===undefined?this.getSignInPage():this.getProductsPage();
+  }
+  
 }
 
 // function App() {

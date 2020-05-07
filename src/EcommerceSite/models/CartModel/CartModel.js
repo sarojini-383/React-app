@@ -25,7 +25,6 @@ cartProduct
  }
  @action.bound
  incrementQuantity(){
-     alert(this.quantity)
      this.quantity+=1;
  }   
  

@@ -5,6 +5,8 @@ import {Provider} from 'mobx-react'
 import stores from './stores'
 import EcommerceStores from './EcommerceSite/EcommerceStores'
 
+import AuthStores from './Authentication/AuthStores'
+
 import HomePage from "./components/HomePage";
 import Page1 from "./components/Page1";
 
@@ -19,18 +21,24 @@ import UsersPage  from './components/UsersPage/index.js'
 import TodoAppByNetworkCalls  from './components/TodoAppByNetworkCalls/index.js'
 
 import LoginPage from './components/common/LoginPage'
-import SignInPage from './Authentication/components/SignInPage/SignInPage.js'
-import ProductsPage from './EcommerceSite/components/ProductsPage/ProductsPage.js'
+
+//import SignInPage from './Authentication/components/SignInPage/SignInPage.js'
+//import ProductsPage from './EcommerceSite/components/ProductsPage/ProductsPage.js'
+
+import ProductsPageRoute from './EcommerceSite/routes/ProductsPageRoute/ProductsPageRoute.js'
+import SignInPageRoute from './Authentication/routes/SignInPageRoute/'
+
+import routes from './Authentication/routes'
 
 import "./App.css";
 
 const App = () => {
   console.log(EcommerceStores)
   return (
-    <Provider {...stores} {...EcommerceStores}>
+    <Provider {...stores} {...EcommerceStores} {...AuthStores}>
     <Router basename={process.env.PUBLIC_URL}>
       <Switch>
-      
+      {routes}
       {/* <Route exact path="/counter-page">
           <CounterPage />
         </Route>...remove*/}
@@ -55,8 +63,8 @@ const App = () => {
         <Route exact path="/user" component={UsersPage }/>
 
         <Route exact path="/todo-3" component={TodoAppByNetworkCalls }/>
-        <Route exact path="/ECommerse" component={ SignInPage }/>
-         <Route exact path="/ProductsPage" component={ ProductsPage }/>
+        <Route exact path="/ECommerse" component={ SignInPageRoute }/>
+        <Route exact path="/ProductsPage" component={ ProductsPageRoute }/>
 
         
         <Route path="/">

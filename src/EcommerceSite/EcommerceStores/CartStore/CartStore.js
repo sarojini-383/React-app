@@ -38,11 +38,11 @@ class CartStore{
   }
  }
  
- @action.bound
- getProductDetailsById(){
-  
- }
-  @action.bound
+ // @action.bound
+ // getProductDetailsById(){
+ // }
+ 
+@action.bound
 onRemoveCartItem(id){
  
   let index=this.cartProductList.findIndex(cell=>cell.productId===id);
@@ -51,11 +51,12 @@ onRemoveCartItem(id){
   a.splice(index,1);
   this.cartProductList=a;
 }
-  @action.bound
-clearCart(){
+
+//   @action.bound
+// clearCart(){
  
- this.init()
-}
+//  this.init()
+// }
 
 @computed get totalCartAmount(){
  

@@ -16,10 +16,10 @@ class AuthService{
     }
     
 
-    getProductsAPI(){
+    signInAPI(){
         return networkCallWithApisauce(
             this.api,
-            'v1/products/',
+            'v1/signin/',
             {},
             apiMethods.get,
             )
