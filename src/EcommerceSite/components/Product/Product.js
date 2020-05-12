@@ -35,7 +35,7 @@ class Product extends React.Component{
       
      return <ProductContainer>
             <ProductFreeShipping>{isFreeShipping?<div>isFreeShipping</div>:null}</ProductFreeShipping>
-            <ProductImage  src={imageURL} ></ProductImage>
+            <ProductImage  src={imageURL} alt="ProductImage"></ProductImage>
           
             <ProductTitle>{title}</ProductTitle>
             <b style={{width:'30px',color:' #d69e2e',flex:'1'}}>_</b>

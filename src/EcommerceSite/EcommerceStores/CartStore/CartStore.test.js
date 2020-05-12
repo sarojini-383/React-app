@@ -54,33 +54,17 @@ it("should test onRemoveCartItem",()=>{
  let mockCartProductList=cartStore.cartProductList 
  expect(mockCartProductList.length).toBe(1)
 }) 
-// computed get totalCartAmount(){
- 
-//  let s=0
-//    this.cartProductList.map(item=> 
-//    {
-//    let a=item.cartDetails.price * item.quantity
-//    s+=a;
-//    }
-//    )
-//    return s;
-// }
 
-// it("should test totalCartAmount",()=>{
-//  let mockProducts=cartStore.cartProductList=[
-//    {productId:1,name:'plain-shirt',price:2000,availableSizes:['X','XS'],quantity:1},
-//    {productId:2,name:'check-shirt',price:1000,availableSizes:['S','X'],quantity:1}
-//    ];
-//   let mockAmount=cartStore.totalCartAmount;
-  
-//   let mockProduct={productId:1,name:'plain-shirt',price:2000,availableSizes:['X','XS'],quantity:1};
-  
-  
-  
-//   let mockTotal=mockProduct.price*mockProducts[0].quantity;
-//   expect(mockAmount).toBe(3000)
-   
-   
-// })
+
+it("should test totalCartAmount",()=>{
+  cartStore.cartProductList=[
+   {cartDetails:{productId:1,name:'plain-shirt',price:2000,availableSizes:['X','XS']},quantity:2
+   },
+   {cartDetails:{productId:1,name:'plain-shirt',price:1000,availableSizes:['X','XS']},quantity:1
+   },
+   ];
+  let mockAmount=cartStore.totalCartAmount;
+  expect(mockAmount).toBe(5000)
+})
 
 })

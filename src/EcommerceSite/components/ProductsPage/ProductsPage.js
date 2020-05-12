@@ -3,8 +3,8 @@ import {observer,inject} from 'mobx-react'
 import {action} from 'mobx'
 import { withRouter } from 'react-router-dom';
 
-import LoadingWrapperWithFailure  from '../../../components/common/LoadingWrapperWithFailure/index.js'
-import NoDataView  from '../../../components/common/NoDataView/index.js'
+import LoadingWrapperWithFailure  from '../../../components/common/LoadingWrapperWithFailure/index'
+import NoDataView  from '../../../components/common/NoDataView/index'
 
 import ProductList from '../ProductList'
 import Header from '../Header'
@@ -44,7 +44,7 @@ class ProductsPage extends Component{
      <ProductPageContainer>
      <Header productsCount={productsCount} 
      onSelectSortBy={onSelectSortBy} onSelectSize={onSelectSize}/>
-     <ProductList data-testid="productList" products={productList} onClickAddToCart={onClickAddToCart}/>
+     <ProductList data-testid="product" products={productList} onClickAddToCart={onClickAddToCart}/>
      </ProductPageContainer>
      
     

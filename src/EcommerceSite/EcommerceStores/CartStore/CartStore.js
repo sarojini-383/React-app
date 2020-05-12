@@ -37,11 +37,8 @@ class CartStore{
    this.cartProductList.push(cartModel)
   }
  }
- 
- // @action.bound
- // getProductDetailsById(){
- // }
- 
+
+
 @action.bound
 onRemoveCartItem(id){
  
@@ -52,19 +49,14 @@ onRemoveCartItem(id){
   this.cartProductList=a;
 }
 
-//   @action.bound
-// clearCart(){
- 
-//  this.init()
-// }
 
 @computed get totalCartAmount(){
- 
+ //console.log("list",this.cartProductList)
  let s=0
    this.cartProductList.map(item=> 
    {
-   let a=item.cartDetails.price * item.quantity
-   s+=a;
+   s+=item.cartDetails.price * item.quantity
+
    }
    )
    return s;

@@ -18,7 +18,7 @@ class ProductSort extends React.Component{
     render(){
        
         return <ProductCartContainer>Sort Price by:<select className="reg" onChange={this.onSelectSortBy}>
-                    <option value="Select" >Select</option>
+                    <option defaultValue="Select" >Select</option>
                     <option value="LowestToHighest" >Lowest to highest</option>
                     <option value="HighestToLowest" >Highest to lowest</option>
          </select></ProductCartContainer>

@@ -44,7 +44,8 @@ class ProductCart extends React.Component{
     render(){
         const { cartStore } =this.props  
             return<ProductCartContainer> 
-         <Cart><FiShoppingCart style={{width:'60px',height:'70px',color:'white',position:'relative' }} onClick={this.showCart}/>
+         <Cart>
+         <FiShoppingCart data-testId="showCart" style={{width:'60px',height:'70px',color:'white',position:'relative' }} onClick={this.showCart}/>
          <CartItemsCount>{cartStore.noOfProductsInCart}</CartItemsCount>
          </Cart>
         <div>{this.shouldDisplayCart ? <CartContainer>

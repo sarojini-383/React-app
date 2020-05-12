@@ -68,13 +68,13 @@ describe("ProductsPage Tests",()=>{
     
     it("should test onChangeSortBy",()=>{
         productStore.onChangeSortBy('HighestToLowest');
-        expect(productStore.sortBy).toEqual('DESCENDING')
+        expect(productStore.sortBy).toBe('DESCENDING')
         
         productStore.onChangeSortBy('LowestToHighest');
-        expect(productStore.sortBy).toEqual('ASCENDING')
+        expect(productStore.sortBy).toBe('ASCENDING')
         
         productStore.onChangeSortBy('All');
-        expect(productStore.sortBy).toEqual('ALL')
+        expect(productStore.sortBy).toBe('ALL')
         
 
     })

@@ -1,5 +1,5 @@
 /*global expect*/
-import React from 'react'
+
 import {
     API_INITIAL,
     API_FAILED,
@@ -24,4 +24,8 @@ describe("ProductsPage Tests",()=>{
         expect(productStore.getProductListAPIStatus).toBe(API_INITIAL);
         expect(productStore.getProductListAPIError).toBe(null);
     })
+    
+    // it("should render products page",()=>{
+    //     <ProductsPage />
+    // })
 })

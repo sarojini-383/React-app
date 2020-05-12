@@ -3,10 +3,10 @@ import {observer,inject} from 'mobx-react'
 import {action} from 'mobx'
 import { withRouter } from 'react-router-dom';
 
-import LoadingWrapperWithFailure  from '../../../components/common/LoadingWrapperWithFailure/index.js'
-import NoDataView  from '../../../components/common/NoDataView/index.js'
+import LoadingWrapperWithFailure  from '../../../components/common/LoadingWrapperWithFailure/index'
+import NoDataView  from '../../../components/common/NoDataView/index'
 
-import ProductsPage from '../../components/ProductsPage/ProductsPage.js'
+import ProductsPage from '../../components/ProductsPage'
 
 
 @inject('productStore','cartStore','authStore')
