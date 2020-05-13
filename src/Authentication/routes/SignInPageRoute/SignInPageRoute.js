@@ -12,6 +12,7 @@ class SignInPageRoute extends React.Component {
     @observable username
     @observable password
     @observable errorMessage
+  //  passwordRef=React.createRef();
     
     constructor(props){
         super(props);
@@ -46,6 +47,7 @@ class SignInPageRoute extends React.Component {
         }
         else if(this.password.length === 0){
             this.errorMessage='please Enter password';
+           // this.passwordRef.current.focus();
         }
         else{
         this.props.authStore.userSignIn(); 
@@ -54,14 +56,19 @@ class SignInPageRoute extends React.Component {
         }
     }
     
-    render(){
+            
         
-        const onChangeUsername=this.onChangeUsername
+    
+    render(){
+      const onChangeUsername=this.onChangeUsername
         const onChangePassword=this.onChangePassword
         const onClickSignIn =this.onClickSignIn
         const errorMessage =this.errorMessage
         const username=this.username
         const password=this.password
+        
+        
+      //  const passwordRef=this.passwordRef;
         
         return (<SignInPage onChangeUsername={onChangeUsername}
         onChangePassword={onChangePassword}

@@ -32,6 +32,8 @@ import routes from './Authentication/routes'
 
 import "./App.css";
 
+const ThemeContext = React.createContext('light');
+
 const App = () => {
   console.log(EcommerceStores)
   return (
@@ -63,7 +65,9 @@ const App = () => {
         <Route exact path="/user" component={UsersPage }/>
 
         <Route exact path="/todo-3" component={TodoAppByNetworkCalls }/>
+              {/*<ThemeContext.Provider value="dark">*/}
         <Route exact path="/ECommerse" component={ SignInPageRoute }/>
+        {/*</ThemeContext>*/}
         <Route exact path="/ProductsPage" component={ ProductsPageRoute }/>
 
         
