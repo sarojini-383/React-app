@@ -12,10 +12,10 @@ class Countries extends React.Component {
 
     render() {
 
-        return (this.props.countries.map(item =>
-            <countryCardStyle>
-            <CountryCard  cntryDet={item} all={this.props.countries}/>
-            </countryCardStyle>
+        return (this.props.countries.map((item,index) =>
+            <div>
+            <CountryCard key={index} cntryDet={item} all={this.props.countries}/>
+            </div>
         ));
 
     }

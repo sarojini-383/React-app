@@ -27,12 +27,12 @@ class SpeceficCountryCard extends React.Component {
         let { cntryDet,all } = this.props.history.location.state;
         let countryDetails=cntryDet
         return (
-    <div style={this.props.selectedTheme === 'Dark mode' ? darkMode:lightMode}>
+    <div style={this.props.selectedTheme === 'Dark' ? darkMode:lightMode}>
     
     <Header onChangeTheme={this.props.onChangeTheme} selectedTheme={this.props.selectedTheme}/>
   
     <div style={backBtn}>
-        <button style={this.props.selectedTheme === 'Dark mode' ?darkModeBtn:lightModeBtn} onClick={this.goBack}><span style={backArr}><IoMdArrowBack/>Back </span></button>
+        <button style={this.props.selectedTheme === 'Dark' ?darkModeBtn:lightModeBtn} onClick={this.goBack}><span style={backArr}><IoMdArrowBack/>Back </span></button>
     </div>
 
     <div style={countryDetailsBlock}>              

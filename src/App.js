@@ -28,6 +28,13 @@ import LoginPage from './components/common/LoginPage'
 import ProductsPageRoute from './EcommerceSite/routes/ProductsPageRoute/ProductsPageRoute.js'
 import SignInPageRoute from './Authentication/routes/SignInPageRoute/'
 
+import CountriesDashboardApp from './components/CountriesDashboardApp/CountriesDashboardApp'
+import './components/CountriesDashboardApp/CountriesDashboardApp.css'
+
+import SpeceficCountryCard from './components/speceficCountryCard/speceficCountryCard'
+import './components/CountriesDashboardApp/CountriesDashboardApp.css'
+
+import PracticeAdvancedConceptsRoute from './common/routes/PracticeAdvancedConceptsRoute'
 import routes from './Authentication/routes'
 
 import "./App.css";
@@ -35,7 +42,7 @@ import "./App.css";
 const ThemeContext = React.createContext('light');
 
 const App = () => {
-  console.log(EcommerceStores)
+  
   return (
     <Provider {...stores} {...EcommerceStores} {...AuthStores}>
     <Router basename={process.env.PUBLIC_URL}>
@@ -45,7 +52,12 @@ const App = () => {
           <CounterPage />
         </Route>...remove*/}
         
+        <Route exact path="/CountriesDashboardApp" component={ CountriesDashboardApp }/>
         
+         <Route path="/CountriesDashboardApp/details/:id">
+           <SpeceficCountryCard />
+           </Route>
+              
         <Route exact path="/login">
           <LoginPage />
         </Route>
@@ -69,7 +81,8 @@ const App = () => {
         <Route exact path="/ECommerse" component={ SignInPageRoute }/>
         {/*</ThemeContext>*/}
         <Route exact path="/ProductsPage" component={ ProductsPageRoute }/>
-
+            
+        <Route exact path="/practice-advanced-concepts" component={ PracticeAdvancedConceptsRoute }/>
         
         <Route path="/">
           <HomePage />

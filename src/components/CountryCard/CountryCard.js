@@ -12,6 +12,7 @@ class CountryCard extends React.Component {
     }
 
     displayCountryCard = () => {
+        
         let { history, cntryDet,all } = this.props;
         history.push(`/CountriesDashboardApp/details/${cntryDet.alpha3Code}`,{cntryDet,all});
     }

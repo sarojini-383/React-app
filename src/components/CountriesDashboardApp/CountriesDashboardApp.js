@@ -21,6 +21,7 @@ import '../Countries/Countries.css'
 
 import {CountriesFilterBarContainer,CountryCardContainer,Loading} from '../styledComponentForCountryDashBoard.js'
 
+import withCountries from '../../common/hocs/withCountries';
 
 @observer 
 class CountriesDashboardApp extends React.Component{
@@ -33,20 +34,16 @@ class CountriesDashboardApp extends React.Component{
     }
 
     componentDidMount() {
+      
+        
         fetch('https://restcountries.eu/rest/v2/all')
             .then(response => response.json())
             .then(json =>
-                {this.getCountries(json);
-                console.log(json);}
+                {this.getCountries(json)}
             );
     }
 
-    // getRegionOptions = (json) => {
-    //     const reqRegionsList = [...new Set(json.map(cntry => cntry.region))];
-    //     this.setState({ regionsList: reqRegionsList })
-
-    // }
-
+ 
     getCountries = (json) => {
         let countryDetails=[];
         json.forEach(item => {
@@ -55,8 +52,8 @@ class CountriesDashboardApp extends React.Component{
 
         this.setState({ countries: countryDetails })
         this.setState({ allCountries: countryDetails })
-        //this.getRegionOptions(countryDetails)
-this.filterCountriesByRegion()
+    
+//this.filterCountriesByRegion()
     }
 
     onChangeSearchText = (searchedTxt) => {
@@ -78,7 +75,8 @@ this.filterCountriesByRegion()
 
     combinationSearch = (searchedTxt, selectedRegion) => {
         
-        let {allCountries}=this.state;
+         let {allCountries}=this.state;
+        //let allCountries=this.props.allCountries;
         
         if (searchedTxt === "" && selectedRegion === 'All') {
             this.setState({ countries: allCountries });
@@ -101,9 +99,13 @@ this.filterCountriesByRegion()
         }
     }
     filterCountriesByRegion = () => {
-      let {allCountries}=this.state;  
+     let {allCountries}=this.state;  
+     //let {allCountries}=this.props;
+    //console.log("allCntries",this.props.allCountries)
+     if(this.props.allCountries!=undefined){
         let filteredRegions= [...new Set(allCountries.map(cntry=> cntry.region))];
         return filteredRegions
+    }
     }
 
     filterCountriesByName = (s) => {
@@ -118,8 +120,10 @@ this.filterCountriesByRegion()
   }
 
     render() {
+                //console.log("allCntriesConst",this.props.allCountries)
+//alert(this.props.allCountries.length)
         let {onChangeTheme}=this.props;
-        return (<div className={this.getCurrentTheme() === 'Dark mode' ?'dark-mode':'light-mode'}>
+        return (<div className={this.getCurrentTheme() === 'Dark' ?'dark-mode':'light-mode'}>
         <Header   onChangeTheme={onChangeTheme} selectedTheme={this.getCurrentTheme()}/>
         
    
@@ -142,4 +146,4 @@ this.filterCountriesByRegion()
     }
 }
 
-export default CountriesDashboardApp;
+export default withCountries(CountriesDashboardApp);

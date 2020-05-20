@@ -10,7 +10,7 @@ class Header extends React.Component {
 
     render() {
         return (
-            <div className={this.props.selectedTheme === 'Dark mode' ?'header-dark-mode':'header-light-mode'}>
+            <div className={this.props.selectedTheme === 'Dark' ?'header-dark-mode':'header-light-mode'}>
             <h3>Where in the Country?</h3>
             <div onClick={this.onChangeTheme} >
             <span>{this.props.selectedTheme}</span>&#9790;</div>
