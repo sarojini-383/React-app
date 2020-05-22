@@ -8,6 +8,7 @@ class Loader extends Component {
   };
 
   render() {
+    
     const { width, height, fill } = this.props;
     return (
       <svg

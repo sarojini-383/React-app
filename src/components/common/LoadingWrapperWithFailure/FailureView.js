@@ -9,6 +9,7 @@ import {
 
 @observer
 class FailureView extends React.Component {
+  
   render() {
     const { onRetryClick, errorMessage } = this.props
 

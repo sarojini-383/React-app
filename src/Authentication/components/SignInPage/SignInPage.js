@@ -45,7 +45,7 @@ class SignInPage extends React.Component {
                     <SignInTxt>Sign in</SignInTxt>
                     <UserInput ref={this.userNameRef} placeholder="Username" value={username} onChange={onChangeUsername} type="text"></UserInput>
                     <Password ref={passwordRef} placeholder="Password" value={password} onChange={onChangePassword}  type="password"></Password>
-                    <SignInBtn  onClick={onClickSignIn} >Sign in</SignInBtn>
+                    <SignInBtn color={'black'} onClick={onClickSignIn} >Sign in</SignInBtn>
                     <ErrorMsg>{errorMessage}</ErrorMsg>
                     <DisplayMessage>{()=><div>Lasii</div>}</DisplayMessage>
             </SignInPageContainer>);

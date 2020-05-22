@@ -16,7 +16,10 @@ const GridsField=styled.div`${tw `flex flex-wrap`}
 width:${props=>props.width}`;
 
 //const ThemeStyle=styled.div`${tw`p-1 border`}`;
-const ThemeStyle=styled.div`${tw`p-1 border  text-base self-center`}`;
+const ThemeStyle=styled.div`${tw`p-1 m-2 border w-24 text-center`};
+color:${props=>props.color};
+background-color:${props=>props.backgroundColor};
+`;
 
 const CellStyle=styled.button`${tw `m-1 flex-grow` }
 background-color:${props=> props.color};

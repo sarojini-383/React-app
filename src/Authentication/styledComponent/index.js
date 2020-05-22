@@ -12,7 +12,9 @@ const Password=styled.input`
 ${tw`border border-solid border-grey-400 w-48 p-1 m-2 `}`
 
 const SignInBtn=styled.button`
-${tw`border rounded border-solid bg-black border-grey-400 w-48 p-2 m-2 text-white `}`
+${tw`border rounded border-solid bg-black  w-48 p-2 m-2 text-white `};
+color:${props=>props.color};
+`
 
 const SignInTxt=styled.div`${tw` text-start font-bold w-48 p-1 m-2`}`
 

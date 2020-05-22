@@ -19,7 +19,10 @@ w-24
 h-8
 m-8
 border-black
-`}`;
+`};
+color:${props=>props.color};
+background-color:${props=>props.backgroundColor};
+`;
 
 
 

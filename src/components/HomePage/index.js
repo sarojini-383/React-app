@@ -78,6 +78,8 @@ class App extends React.Component{
         <Link to="/todo-3">TodosPage</Link>
         <Link to="/ECommerse">ECommerse</Link>
         <Link to="/ProductsPage">ProductsPage</Link>
+        {getAccessToken()===undefined?this.getSignInPage():this.getProductsPage()};
+   
           </header>
     </div>);
    // return getAccessToken()===undefined?this.getSignInPage():this.getProductsPage();
