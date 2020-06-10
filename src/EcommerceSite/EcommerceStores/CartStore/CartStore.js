@@ -51,7 +51,7 @@ onRemoveCartItem(id){
 
 
 @computed get totalCartAmount(){
- //console.log("list",this.cartProductList)
+
  let s=0
    this.cartProductList.map(item=> 
    {

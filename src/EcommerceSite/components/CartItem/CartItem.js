@@ -18,7 +18,7 @@ class CartItem extends React.Component{
     
     @action.bound
     onRemoveCartItem(productId){
-        alert('kim')
+        
         const {cartStore}=this.props;
          cartStore.onRemoveCartItem(productId) 
     }

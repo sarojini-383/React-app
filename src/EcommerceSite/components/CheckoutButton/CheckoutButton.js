@@ -10,7 +10,10 @@ class CheckoutButton extends React.Component{
 
     clearCart=()=>{
         const {cartStore}=this.props;
-        cartStore.clearCart();
+        
+        
+        cartStore.clearStore();
+
         alert('Thank you for shopping with us 😊Your products will be delivered in 3 days tothe address mentioned in your profile.');
     }
     

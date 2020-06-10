@@ -5,7 +5,7 @@ class SelectRegion extends React.Component {
 
     render() {
         return <select className="reg" onChange={this.props.onChange}>
-        <option value="All" >All</option>
+        <option defaultValue="All" >All</option>
         {(this.props.countryRegions!=undefined)?
         this.props.countryRegions.map(item =>
             <option  value={item} >{item}</option>):null}

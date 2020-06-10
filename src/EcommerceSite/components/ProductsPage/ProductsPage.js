@@ -10,6 +10,8 @@ import ProductList from '../ProductList'
 import Header from '../Header'
 
 import ProductCart from '../ProductCart'
+import Paginator from '../Paginator/Paginator.js'
+
 import {
   ProductPageContainer,
   CartContainer,
@@ -44,7 +46,8 @@ class ProductsPage extends Component{
      <ProductPageContainer>
      <Header productsCount={productsCount} 
      onSelectSortBy={onSelectSortBy} onSelectSize={onSelectSize}/>
-     <ProductList data-testid="product" products={productList} onClickAddToCart={onClickAddToCart}/>
+     <ProductList  products={productList} onClickAddToCart={onClickAddToCart}/>
+     <Paginator  productStore={productStore} />
      </ProductPageContainer>
      
     

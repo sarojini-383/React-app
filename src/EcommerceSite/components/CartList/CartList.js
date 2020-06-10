@@ -14,9 +14,10 @@ class CartList extends React.Component{
 
     const { cartStore }=this.props;
     const cartProductList=cartStore.cartProductList;
-    console.log("listsdfghjk",cartProductList)
+    
 
-    return  <div style={{overflow:'auto',height:'60%'}}> {cartProductList.map(cartItem=><CartItem key={cartItem.productId} cartItem={cartItem} cartStore={cartStore }  /> )}</div>
+    return  <div style={{overflow:'auto',height:'60%'}}>
+    {cartProductList.map(cartItem=><CartItem key={cartItem.productId} cartItem={cartItem} cartStore={cartStore }  /> )}</div>
     }
 }
 export default CartList

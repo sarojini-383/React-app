@@ -26,8 +26,6 @@ class SignInPage extends React.Component {
     
     componentDidMount(){
       this.userNameRef.current.focus();
-      
-
     }
    // static contextType = ThemeContext;
     render(){

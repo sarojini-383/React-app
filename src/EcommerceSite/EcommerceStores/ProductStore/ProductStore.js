@@ -17,6 +17,11 @@ class ProductStore{
  @observable productList
  @observable sizeFilter
  @observable sortBy
+ @observable limit
+ @observable offset
+ @observable currentPage
+ @observable totalProducts
+ 
  productService
   
   constructor(productService){
@@ -31,7 +36,9 @@ class ProductStore{
       this.productList=[]
       this.sortBy='SELECT'
       this.sizeFilter=[]
-      
+      this.limit=3
+      this.offset=0
+      this.currentPage=1
   }
   @action
   clearStore(){
@@ -40,8 +47,9 @@ class ProductStore{
   
   
   @action.bound
-  setProductListResponse(products){
-      products.map(product=>
+  setProductListResponse(response){
+      this.totalProducts=response.total;
+      response.products.map(product=>
       {const productModel=new ProductModel(product)
       this.productList.push(productModel)})
 
@@ -59,7 +67,7 @@ class ProductStore{
   
   @action.bound
   getProductList(){
-   const productsPromise=this.productService.getProductsAPI();
+   const productsPromise=this.productService.getProductsAPI(this.limit,this.offset);
    
      return bindPromiseWithOnSuccess(productsPromise)
      .to(this.setProductListAPIStatus,this.setProductListResponse)
@@ -137,7 +145,24 @@ class ProductStore{
    this.sizeFilter.remove(selectedSize);
   }
   }
-
+  
+  @action.bound
+  navigateToPreviousPage(){
+   this.offset-=3;
+   this.productList=[]
+   this.getProductList();
+   this.currentPage--;
+  }
+  
+  @action.bound
+  navigateToNextPage(){
+   //alert()
+   this.offset+=3;
+   this.productList=[]
+   this.getProductList();
+   this.currentPage++;
+  // this.productService.getProductsAPI(this.limit,this.offset);
+  }
 }
 
 export default ProductStore;

@@ -39,7 +39,7 @@ import routes from './Authentication/routes'
 
 import "./App.css";
 
-const ThemeContext = React.createContext('light');
+//const ThemeContext = React.createContext('light');
 
 const App = () => {
   
