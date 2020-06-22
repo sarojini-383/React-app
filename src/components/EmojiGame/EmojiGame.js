@@ -9,7 +9,12 @@ import {EmojiCardsContainer} from './styledComponent.js'
 class EmojiGame extends React.Component {
  state={
     emojis:[
-        {id:1, isClicked:false, name:'Exploding Head', image:'https://tap.ibhubs.in/react/assignments/assignment-5/preview/images/memoji-1.png'},
+        {
+            id:1,
+            isClicked:false, 
+            name:'Exploding Head', 
+            image:'https://tap.ibhubs.in/react/assignments/assignment-5/preview/images/memoji-1.png'
+        },
         {id:2, isClicked:false, name:'Grinning Face with Sweat', image:'https://tap.ibhubs.in/react/assignments/assignment-5/preview/images/memoji-2.png'},
         {id:3, isClicked:false, name:'Smiling Face with Heart-Eyes', image:'https://tap.ibhubs.in/react/assignments/assignment-5/preview/images/memoji-3.png'},
         {id:4, isClicked:false, name:'Smirking Face', image:'https://tap.ibhubs.in/react/assignments/assignment-5/preview/images/memoji-4.png'},
@@ -18,8 +23,8 @@ class EmojiGame extends React.Component {
         {id:7, isClicked:false, name:'Grinning Face', image:'https://tap.ibhubs.in/react/assignments/assignment-5/preview/images/memoji-7.png'},
         {id:8, isClicked:false, name:'Crying Face', image:'https://tap.ibhubs.in/react/assignments/assignment-5/preview/images/memoji-8.png'},
         {id:9, isClicked:false, name:'Astonished Face', image:'https://tap.ibhubs.in/react/assignments/assignment-5/preview/images/memoji-9.png'},
-        {id:10, isClicked:false, name:'Face with Tears of Joy', image:'https://tap.ibhubs.in/react/assignments/assignment-5/preview/images/memoji-10.png'},
-        {id:11, isClicked:false, name:'Star-Struck', image:'https://tap.ibhubs.in/react/assignments/assignment-5/preview/images/memoji-11.png'},
+        {id:10,isClicked:false, name:'Face with Tears of Joy', image:'https://tap.ibhubs.in/react/assignments/assignment-5/preview/images/memoji-10.png'},
+        {id:11,isClicked:false, name:'Star-Struck', image:'https://tap.ibhubs.in/react/assignments/assignment-5/preview/images/memoji-11.png'},
         {id:12, isClicked:false, name:'Winking Face with Tongue', image:'https://tap.ibhubs.in/react/assignments/assignment-5/preview/images/memoji-12.png'},
         ],
         gameState:'PLAYING',
@@ -31,6 +36,7 @@ class EmojiGame extends React.Component {
 
 
 onEmojiClick=(emoji)=>{
+  
     let score=this.state.score;
     let emojis = this.state.emojis;
 

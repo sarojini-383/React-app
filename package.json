@@ -5,9 +5,12 @@
    "dependencies": {
       "@emotion/core": "^10.0.28",
       "@emotion/styled": "^10.0.27",
-      "@ib/api": "1.0.8",
+      "@ib/api": "2.0.0",
       "@ib/api-constants": "1.0.8",
       "@ib/mobx-promise": "1.0.8",
+      "@material-ui/core": "4.10.0",
+      "@reach/dialog": "0.10.3",
+      "@reach/menu-button": "0.10.3",
       "@types/jest": "25.2.1",
       "@types/node": "13.11.0",
       "@types/react": "16.9.32",
@@ -16,30 +19,44 @@
       "autoprefixer": "^9.7.5",
       "babel-plugin-macros": "^2.8.0",
       "js-cookie": "2.2.1",
+      "material-ui": "0.20.2",
       "mobx": "5.15.0",
       "mobx-react": "6.1.4",
+      "model": "6.0.1",
       "postcss-cli": "^7.1.0",
-      "react": "^16.13.0",
+      "rc-menu": "8.3.1",
+      "rc-progress": "3.0.0",
+      "react": "16.13.1",
       "react-dom": "^16.13.0",
+      "react-icons": "3.10.0",
+      "react-loading": "2.0.3",
+      "react-modal": "3.11.2",
+      "react-model": "3.1.2",
+      "react-native-options-menu": "2.0.2",
+      "react-progressbar": "15.4.1",
       "react-router-dom": "^5.1.2",
       "react-scripts": "3.4.0",
+      "react-toast-notifications": "2.4.0",
+      "react-toastify": "6.0.5",
+      "semantic-ui-react": "0.88.2",
       "tailwind.macro": "^1.0.0-alpha.10",
       "typescript": "3.8.3"
    },
    "scripts": {
       "build:css": "postcss src/index.css -o src/styles/tailwind.css",
       "watch:css": "postcss src/index.css -o src/styles/tailwind.css",
-      "start": "npm run watch:css & react-scripts start",
-      "build": "npm run build:css react-scripts build",
-      "test": "react-scripts test",
-      "eject": "react-scripts eject",
-      "js:start": "npm run watch:css & react-app-rewired start",
-      "js:build": "npm run build:css react-app-rewired build",
-      "js:test": "react-app-rewired test --env=jest-environment-jsdom-sixteen",
-      "js:eject": "react-app-rewired eject",
+      "start": "npm run watch:css & react-app-rewired start",
+      "build": "npm run build:css & react-app-rewired build",
+      "test": "react-app-rewired test",
+      "eject": "react-app-rewired eject",
+      "ts:start": "npm run watch:css & react-scripts start",
+      "ts:build": "npm run build:css & react-scripts build",
+      "ts:test": "react-scripts test --env=jest-environment-jsdom-sixteen",
+      "ts:eject": "react-scripts eject",
       "deploy": "export PUBLIC_URL=/2019/$C9_USER/react && npm run build && ./deploy.sh",
       "storybook": "start-storybook -p 8080 -s public",
-      "build-storybook": "build-storybook -s public"
+      "build-storybook": "build-storybook -s public",
+      "coverage": "react-app-rewired test --env=jest-environment-jsdom-sixteen --coverage --watchAll=false"
    },
    "eslintConfig": {
       "extends": "react-app"
@@ -80,7 +97,7 @@
    "jest": {
       "testEnvironment": "node",
       "collectCoverageFrom": [
-         "src/*.{ts,tsx,js,jsx}"
+         "src/common/stores/PaginaterStore/*.{ts,tsx,js,jsx}"
       ]
    }
 }

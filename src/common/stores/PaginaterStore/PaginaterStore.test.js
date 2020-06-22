@@ -9,51 +9,60 @@ import {
 } from '@ib/api-constants';
 
 
+import getUsersResponse from '../../../EcommerceSite/fixtures/getUsersResponse.json'
 
-import ProductService from '../../services/ProductService'
-import ProductStore from '../../EcommerceStores/ProductStore'
+import ProductService from '../../../EcommerceSite/services/ProductService'
+import PaginaterStore from './PaginaterStore'
 
-import getUsersResponse from '../../fixtures/getUsersResponse.json'
-
-
-describe("ProductsPage Tests",()=>{
-    let productsAPI;
-    let productStore;
+describe("PaginationStore Tests",()=>{
+    let paginaterStore
+    let productsAPI
     
     beforeEach(()=>{
-        productsAPI=new ProductService();
-        productStore=new ProductStore(productsAPI);
+        productsAPI=new ProductService()
+        paginaterStore=new PaginaterStore(productsAPI);
     })
     
-    it("should test loading state of products page",()=>{
-        expect(productStore.getProductListAPIStatus).toBe(API_INITIAL);
-        expect(productStore.getProductListAPIError).toBe(null);
+    it("should test loading state of PaginationStore",()=>{
+        expect(paginaterStore.getItemsListAPIStatus).toBe(API_INITIAL);
+        expect(paginaterStore.getItemsListAPIError).toBe(null);
         
     })
     
-    it("should test productsAPI fetching state",()=>{
-        const mockLoadingPromise=new Promise(function(resolve,reject){});
-        const mockProductsAPI =jest.fn();
-        mockProductsAPI.mockReturnValue(mockLoadingPromise);
-        productsAPI.getProductsAPI=mockProductsAPI;
+    it("should test productsAPI fetching state",async()=>{
+        //const mockFunction=jest.fn();
+       let limit=3;
+       let offset=0;
+        //expect(mockFunction).toBeCalledWith(limit, offset)
+        const mockLoadingPromise=new Promise(function(resolve,reject){limit,offset})
+        const mockEntityAPI=jest.fn();
+      //  expect(mockEntityAPI).toBeCalledWith(limit, offset)
+        mockEntityAPI.mockReturnValue(mockLoadingPromise);
        
-        productStore.getProductList();
-        expect(productStore.getProductListAPIStatus).toBe(API_FETCHING); 
+        
+      // await paginaterStore.getItems();
+      //   expect(paginaterStore.getItemsListAPIStatus).toBe(API_FETCHING); 
+        expect(paginaterStore.itemsList.length).toBe(0); 
     })
     
     it("should test productsAPI success state",async()=>{
-        const mockSuccessPromise=new Promise(function(resolve,reject){
+        let limit=3;
+       let offset=0;
+        //expect(mockFunction).toBeCalledWith(limit, offset)
+        const mockLoadingPromise=new Promise(function(resolve,reject){
             resolve(getUsersResponse)
-        });
-        const mockProductsAPI =jest.fn();
-        mockProductsAPI.mockReturnValue(mockSuccessPromise);
-        productsAPI.getProductsAPI=mockProductsAPI;
+            
+        })
+        const mockEntityAPI=jest.fn();
+      //  expect(mockEntityAPI).toBeCalledWith(limit, offset)
+        mockEntityAPI.mockReturnValue(mockLoadingPromise);
+        paginaterStore.itemsService=mockEntityAPI
        
-            await productStore.getProductList();
-            expect(productStore.getProductListAPIStatus).toBe(API_SUCCESS); 
+       
+           expect(paginaterStore.itemsList.length).toBe(3); 
     })
 
-    it("should test productsAPI failure state",async ()=>{
+  /*  it("should test productsAPI failure state",async ()=>{
         const mockFailurePromise=new Promise(function(resolve,reject){
             reject(new Error("error"))
         });
@@ -126,7 +135,7 @@ it("should test sortedAndFiltered ProductsList" ,()=>{
        expect(mockApiStatus).toBe(API_INITIAL)
         
   });
-  
+  */
 });   
     
    

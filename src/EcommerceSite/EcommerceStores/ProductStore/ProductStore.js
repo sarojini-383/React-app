@@ -23,14 +23,22 @@ class ProductStore{
  @observable totalProducts
  
  productService
+ paginaterStore
   
-  constructor(productService){
-      this.productService=productService;
+  constructor(productService,PaginaterStore){
       this.init()
+      this.productService=productService;
+      this.paginaterStore=new PaginaterStore(
+       productService.getProductsAPI,
+       ProductModel,
+       this.limit
+       );
+     
   }
   
   @action
   init(){
+   
       this.getProductListAPIStatus=API_INITIAL
       this.getProductListAPIError=null
       this.productList=[]
@@ -39,39 +47,17 @@ class ProductStore{
       this.limit=3
       this.offset=0
       this.currentPage=1
+     
   }
   @action
   clearStore(){
       this.init()
   }
-  
-  
-  @action.bound
-  setProductListResponse(response){
-      this.totalProducts=response.total;
-      response.products.map(product=>
-      {const productModel=new ProductModel(product)
-      this.productList.push(productModel)})
 
-  }
-  
-  @action.bound
-  setProductListAPIError(error){
-      this.getProductListAPIError=error;
-  }
-    
-  @action.bound
-  setProductListAPIStatus(apiStatus){
-     this.getProductListAPIStatus=apiStatus 
-  }
-  
   @action.bound
   getProductList(){
-   const productsPromise=this.productService.getProductsAPI(this.limit,this.offset);
-   
-     return bindPromiseWithOnSuccess(productsPromise)
-     .to(this.setProductListAPIStatus,this.setProductListResponse)
-     .catch(this.setProductListAPIError)
+       const productsPromise=this.paginaterStore.getItems();
+       this.productList=observable(this.paginaterStore.itemsList);
   }
   
   @computed 
@@ -118,7 +104,6 @@ class ProductStore{
   
  @computed
  get totalNoOfProductsDisplayed(){
-   //console.log("length")
    return this.sortedAndFilteredProducts.length;
   }
   
@@ -156,13 +141,11 @@ class ProductStore{
   
   @action.bound
   navigateToNextPage(){
-   //alert()
    this.offset+=3;
    this.productList=[]
    this.getProductList();
    this.currentPage++;
-  // this.productService.getProductsAPI(this.limit,this.offset);
-  }
+}
 }
 
 export default ProductStore;

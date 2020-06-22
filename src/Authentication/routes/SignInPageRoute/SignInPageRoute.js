@@ -21,8 +21,8 @@ class SignInPageRoute extends React.Component {
     
     @action
     init(){
-        this.username="",
-        this.password="",
+        this.username=""
+        this.password=""
         this.errorMessage=null;
     }
     

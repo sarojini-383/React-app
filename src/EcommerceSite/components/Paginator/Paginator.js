@@ -8,9 +8,9 @@ import {PaginatorContainer,CurrentPage,TotalPages,LeftArrow,RightArrow} from './
 class Paginator extends React.Component{
  
  render(){
-     const {productStore}=this.props;
-     const {navigateToPreviousPage,navigateToNextPage,currentPage,limit,totalProducts}=productStore;
-     const totalPages=Math.ceil(totalProducts/limit)
+     const {paginaterStore}=this.props;
+     const {navigateToPreviousPage,navigateToNextPage,currentPage,limit,total}=paginaterStore;
+     const totalPages=Math.ceil(total/limit)
 
      return <PaginatorContainer>
      <LeftArrow disabled={currentPage>1?false:true} onClick={navigateToPreviousPage}><MdNavigateBefore /></LeftArrow>

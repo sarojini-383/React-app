@@ -55,8 +55,8 @@ class App extends React.Component{
      return(
      <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
+       {/* <img src={logo} className="App-logo" alt="logo" />
+        */}<p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
         <a
@@ -68,7 +68,7 @@ class App extends React.Component{
           Learn React
         </a>
         <Link to="/CountriesDashboardApp">CountriesDashboardApp</Link>
-        
+        <Link to="EmojiGame">EmojiGame</Link>
         <Link to="/practice-advanced-concepts">PracticeAdvancedConceptsRoute</Link>
         <Link to="/login">LoginPage</Link>
         <Link to="/grid">Grid Game</Link>

@@ -37,6 +37,8 @@ import './components/CountriesDashboardApp/CountriesDashboardApp.css'
 import PracticeAdvancedConceptsRoute from './common/routes/PracticeAdvancedConceptsRoute'
 import routes from './Authentication/routes'
 
+import EmojiGame from './components/EmojiGame/EmojiGame'
+
 import "./App.css";
 
 //const ThemeContext = React.createContext('light');
@@ -51,6 +53,8 @@ const App = () => {
       {/* <Route exact path="/counter-page">
           <CounterPage />
         </Route>...remove*/}
+        
+        <Route exact path="/EmojiGame" component={ EmojiGame }/>
         
         <Route exact path="/CountriesDashboardApp" component={ CountriesDashboardApp }/>
         

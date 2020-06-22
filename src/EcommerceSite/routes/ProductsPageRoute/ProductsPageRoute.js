@@ -56,7 +56,8 @@ class ProductsPageRoute extends Component{
      const onClickSignOut=this.onClickSignOut;
      const cartStore=this.getCartStore();
      const productStore=this.getStore();
-     
+     const paginaterStore=this.getStore().paginaterStore
+     console.log("in route",productList)
       return  (<ProductsPage 
           productsCount={productsCount}
           onSelectSortBy={onSelectSortBy}
@@ -67,6 +68,7 @@ class ProductsPageRoute extends Component{
           onClickSignOut={onClickSignOut}
           cartStore={cartStore}
           productStore={productStore}
+          paginaterStore={paginaterStore}
         />);
 
     }

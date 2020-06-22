@@ -34,10 +34,11 @@ class ProductsPage extends Component{
       getProductDetailsById,
       onClickSignOut,
       cartStore,
-      productStore
+      productStore,
+      paginaterStore
     }=this.props;
     
-
+    console.log("productList",productList)
      
      return <div style={{display:'flex' ,flexDirection:'column' }}>
      <div style={{display:'flex',justifyContent:'space-between',backgroundColor:'white'}}> 
@@ -46,20 +47,20 @@ class ProductsPage extends Component{
      <ProductPageContainer>
      <Header productsCount={productsCount} 
      onSelectSortBy={onSelectSortBy} onSelectSize={onSelectSize}/>
-     <ProductList  products={productList} onClickAddToCart={onClickAddToCart}/>
-     <Paginator  productStore={productStore} />
+     <ProductList products={paginaterStore.itemsList}  onClickAddToCart={onClickAddToCart}/>
+     <Paginator  paginaterStore={paginaterStore} />
      </ProductPageContainer>
      
     
       </div>
   })
     render(){
-
-        const {getProductListAPIStatus,getProductListAPIError,productList}=this.props.productStore;
+    
+       const {getItemsListAPIStatus,getItemsListAPIError}=this.props.productStore.paginaterStore;
         
         return <LoadingWrapperWithFailure
-        apiStatus={getProductListAPIStatus}
-        apiError={getProductListAPIError}
+        apiStatus={getItemsListAPIStatus}
+        apiError={getItemsListAPIError}
         onRetryClick={this.doNetworkCalls}
         renderSuccessUI={this.renderProductsList}
         />
